@@ -36,7 +36,7 @@ function WhatsAppPopup() {
   }, [show]);
 
   return (
-    <div className="fixed bottom-8 right-4 z-50">
+    <div className="fixed bottom-20 left-2 right-4 z-100">
       {/* Popup - positioned absolutely above the button */}
       <AnimatePresence>
         {show && (
