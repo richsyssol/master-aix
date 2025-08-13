@@ -14,6 +14,16 @@ import {
   FiX,
   FiChevronDown,
   FiChevronUp,
+  FiLayers,
+  FiCalendar,
+  FiUsers,
+  FiSend,
+  FiDollarSign,
+  FiSmartphone,
+  FiSettings,
+  FiTarget,
+  FiTrendingUp,
+  FiZap,
 } from "react-icons/fi";
 import {
   FaWhatsapp,
@@ -21,6 +31,17 @@ import {
   FaFacebook,
   FaLinkedin,
   FaYoutube,
+  FaRocket,
+  FaChartLine,
+  FaClock,
+  FaUserCheck,
+  FaHandshake,
+  FaLightbulb,
+  FaRegSmileWink,
+  FaCheckSquare,
+  FaBolt,
+  FaFilter,
+  FaUserFriends,
 } from "react-icons/fa";
 import {
   Button,
@@ -32,8 +53,26 @@ import {
   Card,
   Collapse,
 } from "antd";
+
 import AIRobotAnimation from "../Componants/AIRobotAnimation.jsx/AIRobotAnimation";
 import ScrollToTop from "../Componants/ScrollToTop/ScrollToTop";
+import {
+  logo1,
+  logo10,
+  logo11,
+  logo12,
+  logo13,
+  logo14,
+  logo15,
+  logo2,
+  logo3,
+  logo4,
+  logo5,
+  logo6,
+  logo7,
+  logo8,
+  logo9,
+} from "../assets";
 
 const { Panel } = Collapse;
 const { Option } = Select;
@@ -42,7 +81,7 @@ const Home = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const [leadsProcessed, setLeadsProcessed] = useState(17842);
-  const [businessesAutomated, setBusinessesAutomated] = useState(3291);
+  const [businessesAutomated, setBusinessesAutomated] = useState(1000);
   const [timeLeft, setTimeLeft] = useState({
     hours: 2,
     minutes: 14,
@@ -178,115 +217,164 @@ const Home = () => {
 
   const features = [
     {
-      icon: <FiMessageSquare className="text-3xl" />,
+      icon: <FiMessageSquare className="text-3xl text-indigo-600" />,
       title: "AI Lead Capture",
       description:
         "Automatically grabs leads from your website, Facebook, Instagram & even walk-ins - before they go cold",
     },
     {
-      icon: <FaWhatsapp className="text-3xl" />,
+      icon: <FaWhatsapp className="text-3xl text-green-600" />,
       title: "Smart WhatsApp Automation",
       description:
         "Send personalized bulk messages that don't look spammy (Meta-approved templates)",
     },
     {
-      icon: <FiShoppingCart className="text-3xl" />,
+      icon: <FiShoppingCart className="text-3xl text-blue-600" />,
       title: "Sales-Ready Mini Stores",
       description:
         "Create a beautiful product catalog in 5 minutes - share via WhatsApp/Insta link",
     },
     {
-      icon: <FiBarChart2 className="text-3xl" />,
+      icon: <FiBarChart2 className="text-3xl text-purple-600" />,
       title: "Killer Analytics",
       description:
         "See exactly which leads to call TODAY (and which to auto-nurture)",
     },
+    {
+      icon: <FiShoppingCart className="text-3xl text-red-600" />,
+      title: "Shop Builder",
+      description:
+        "Create beautiful online stores with our drag-and-drop Shop Builder. No coding required - launch your ecommerce business in minutes.",
+    },
+    {
+      icon: <FiLayers className="text-3xl text-amber-600" />,
+      title: "Form Builder",
+      description:
+        "Create powerful forms, surveys, and questionnaires with our intuitive Form Builder. Collect data effortlessly.",
+    },
+    {
+      icon: <FiLayers className="text-3xl text-emerald-600" />,
+      title: "Landing Page Builder",
+      description:
+        "Create high-converting landing pages without coding. Drag, drop, and publish in minutes.",
+    },
+    {
+      icon: <FiCalendar className="text-3xl text-pink-600" />,
+      title: "Calendar Booking",
+      description:
+        "Let clients book appointments 24/7 with your automated scheduling system.",
+    },
+    {
+      icon: <FiUsers className="text-3xl text-cyan-600" />,
+      title: "CRM System",
+      description:
+        "Manage customer relationships effectively with our all-in-one CRM platform.",
+    },
+    {
+      icon: <FaWhatsapp className="text-3xl text-green-500" />,
+      title: "WhatsApp Sender",
+      description:
+        "Send bulk WhatsApp messages with our powerful messaging platform.",
+    },
+    {
+      icon: <FaFacebook className="text-3xl text-blue-500" />,
+      title: "Ad Launcher",
+      description:
+        "Create, manage, and optimize ads across multiple platforms from one dashboard.",
+    },
+    {
+      icon: <FaWhatsapp className="text-3xl text-green-400" />,
+      title: "WhatsApp Cloud API",
+      description:
+        "Integrate WhatsApp messaging directly into your business applications.",
+    },
+    {
+      icon: <FiSettings className="text-3xl text-gray-600" />,
+      title: "Automation Workflow",
+      description:
+        "Automate repetitive tasks and business processes with our visual workflow builder.",
+    },
+    {
+      icon: <FiDollarSign className="text-3xl text-yellow-600" />,
+      title: "Sales & Finance",
+      description:
+        "Complete sales tracking and financial management in one platform.",
+    },
+    {
+      icon: <FiSmartphone className="text-3xl text-teal-600" />,
+      title: "SMS Automation",
+      description: "Automate SMS communications with customers at scale.",
+    },
   ];
 
-  const pricingPlans = {
-    standard: {
-      name: "Starter",
-      price: "₹9,999",
-      period: "/month",
-      description:
-        "Perfect for small businesses getting started with automation",
-      features: [
-        "Up to 1,000 leads/month",
-        "WhatsApp Automation",
-        "Basic Analytics Dashboard",
-        "Email Support",
-        "5 Workflows",
-        "10 Projects",
-        "50 GB Storage",
-        "Basic AI Features",
-        "Standard Reports",
-      ],
-      cta: "Start Free Trial",
+  // winsdata
+  const winsData = [
+    {
+      icon: <FaRocket className="text-2xl" />,
+      text: "One client doubled lead response rates within 3 weeks",
+      bgColor: "bg-blue-50",
+      iconBg: "bg-blue-600",
+      textColor: "text-blue-900",
     },
-    professional: {
-      name: "Professional",
-      price: "₹24,999",
-      period: "/month",
-      description: "For growing businesses needing more automation",
-      features: [
-        "Up to 5,000 leads/month",
-        "WhatsApp + SMS Automation",
-        "Advanced Analytics",
-        "Priority Support",
-        "Unlimited Workflows",
-        "50 Projects",
-        "250 GB Storage",
-        "Advanced AI Features",
-        "Custom Reports",
-        "API Access",
-        "3rd Party Integrations",
-      ],
-      cta: "Get Started",
-      popular: true,
+    {
+      icon: <FaChartLine className="text-2xl" />,
+      text: "Boosted conversions by 30% through automated follow-ups",
+      bgColor: "bg-green-50",
+      iconBg: "bg-green-600",
+      textColor: "text-green-900",
     },
-    enterprise: {
-      name: "Enterprise",
-      price: "Custom",
-      period: "",
-      description: "For large businesses with complex automation needs",
-      features: [
-        "Unlimited leads",
-        "Omnichannel Automation",
-        "Dedicated Account Manager",
-        "24/7 Support",
-        "Custom Workflows",
-        "Unlimited Projects",
-        "1TB+ Storage",
-        "Premium AI Features",
-        "White-labeling",
-        "Single Sign-On",
-        "Custom Development",
-        "Onboarding Session",
-      ],
-      cta: "Contact Sales",
+    {
+      icon: <FiTarget className="text-2xl" />,
+      text: "Cut DNPs by 42% with smart call nudges",
+      bgColor: "bg-amber-50",
+      iconBg: "bg-amber-600",
+      textColor: "text-amber-900",
     },
-  };
+    {
+      icon: <FaClock className="text-2xl" />,
+      text: "Saved 15+ hours/week by automating lead engagement",
+      bgColor: "bg-red-50",
+      iconBg: "bg-red-600",
+      textColor: "text-red-900",
+    },
+    {
+      icon: <FiTrendingUp className="text-2xl" />,
+      text: "Increased customer retention by 25% with timely messaging",
+      bgColor: "bg-purple-50",
+      iconBg: "bg-purple-600",
+      textColor: "text-purple-900",
+    },
+    {
+      icon: <FaUserCheck className="text-2xl" />,
+      text: "Improved lead qualification accuracy by 35%",
+      bgColor: "bg-teal-50",
+      iconBg: "bg-teal-600",
+      textColor: "text-teal-900",
+    },
+  ];
 
   const logos = [
-    "Tata",
-    "Reliance",
-    "HDFC",
-    "ICICI",
-    "Byju's",
-    "Unacademy",
-    "Oyo",
-    "Zomato",
-    "Swiggy",
-    "Flipkart",
-    "Amazon",
-    "Myntra",
+    { type: "image", src: logo1, alt: "Tata" },
+    { type: "image", src: logo2, alt: "Demo" },
+    { type: "image", src: logo3, alt: "" },
+    { type: "image", src: logo4, alt: "" },
+    { type: "image", src: logo5, alt: "" },
+    { type: "image", src: logo6, alt: "" },
+    { type: "image", src: logo7, alt: "" },
+    { type: "image", src: logo8, alt: "" },
+    { type: "image", src: logo9, alt: "" },
+    { type: "image", src: logo10, alt: "" },
+    { type: "image", src: logo11, alt: "" },
+    { type: "image", src: logo12, alt: "" },
+    { type: "image", src: logo13, alt: "" },
+    { type: "image", src: logo14, alt: "" },
+    { type: "image", src: logo15, alt: "" },
   ];
-
   const faqs = [
     {
       question: "We already have a CRM?",
       answer:
-        "MASTER.aiX SUPERCHARGES your existing tools with AI automation - we'll show you how!",
+        "MASTERaiX SUPERCHARGES your existing tools with AI automation - we'll show you how!",
     },
     {
       question: "What if it doesn't work for us?",
@@ -299,12 +387,21 @@ const Home = () => {
     },
     {
       question: "Is there a free trial?",
-      answer:
-        "Yes! All plans come with a 14-day free trial with full feature access",
+      answer: "Yes, at the cost of a good coffee.",
     },
     {
       question: "What payment methods do you accept?",
       answer: "We accept all major credit cards, UPI, net banking, and PayPal",
+    },
+    {
+      question: "Who is this for?",
+      answer:
+        "This is for anyone who wants to acquire more customers on the internet with REVERSE FUNNELS. Coaches, consultants, agency owners, artists, professional service providers, influencers, and content creators.",
+    },
+    {
+      question: "How is this different from other products?",
+      answer:
+        "It works. We have a proven track record of utilizing this for ourselves and our private clients. You don’t need to be an expert to implement these strategies.",
     },
   ];
 
@@ -376,7 +473,7 @@ const Home = () => {
                   textShadow: `0 0 10px ${colors.glowEffect}`,
                 }}
               >
-                MASTER.aiX
+                MASTERaiX
               </span>
             </div>
 
@@ -422,7 +519,7 @@ const Home = () => {
                     }
                   }}
                 >
-                  Get Free Audit <FiArrowRight className="inline ml-1" />
+                  Grow My Business <FiArrowRight className="inline ml-1" />
                 </Button>
               </motion.div>
             </div>
@@ -475,18 +572,21 @@ const Home = () => {
                 <a
                   href="#features"
                   className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Features
                 </a>
                 <a
                   href="#how-it-works"
                   className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   How It Works
                 </a>
                 <a
-                  href="#testimonials"
+                  href="#contact"
                   className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
+                  onClick={() => setIsMenuOpen(false)}
                 >
                   Results
                 </a>
@@ -500,8 +600,22 @@ const Home = () => {
                     boxShadow: `0 0 10px ${colors.glowEffect}`,
                   }}
                   className="font-semibold mt-2"
+                  onClick={() => {
+                    setIsMenuOpen(false);
+                    const contactSection = document.getElementById("contact");
+                    if (contactSection) {
+                      contactSection.scrollIntoView({
+                        behavior: "smooth",
+                        block: "start", // aligns top of element with top of visible area
+                      });
+                    } else {
+                      // Fallback to navigation if section not found
+                      navigate("/contact");
+                    }
+                  }}
                 >
-                  Get Free Audit <FiArrowRight className="inline ml-1" />
+                  SkyRocket Grow My Business{" "}
+                  <FiArrowRight className="inline ml-1" />
                 </Button>
               </div>
             </motion.div>
@@ -570,10 +684,7 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2
-              className="text-[5.5rem] md:text-2xl font-bold text-white mb-6"
-              style={{ fontSize: "4rem" }}
-            >
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
               YOUR 24/7 Marketing & SALES TEAM - Powered by AI
             </h2>
 
@@ -614,7 +725,7 @@ const Home = () => {
               className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto"
               variants={heroItemVariants}
             >
-              MASTER.aiX captures, nurtures, and converts leads across WhatsApp,
+              MASTERaiX captures, nurtures, and converts leads across WhatsApp,
               SMS & email - so you never lose another sale to follow-up fatigue
             </motion.p>
           </motion.div>
@@ -836,12 +947,14 @@ const Home = () => {
                   }
                 }}
               >
-                Get Free Audit <FiArrowRight className="inline ml-1" />
+                SkyRocket Grow My Business{" "}
+                <FiArrowRight className="inline ml-1" />
               </Button>
             </motion.div>
           </div>
         </div>
       </section>
+
       {/* Pain Point Section */}
       <section className="py-16" style={{ backgroundColor: colors.darkBlue }}>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -958,6 +1071,16 @@ const Home = () => {
                     constant sales calls
                   </p>
                 </div>
+                <div className="flex items-start">
+                  <FiCheck
+                    className="mt-1 mr-2 flex-shrink-0"
+                    style={{ color: colors.neonViolet }}
+                  />
+                  <p className="text-gray-300">
+                    <span className="font-medium">Call only hot </span>
+                    customer that too (If you wish)
+                  </p>
+                </div>
               </div>
 
               <motion.div
@@ -986,6 +1109,31 @@ const Home = () => {
               </motion.div>
             </div>
           </motion.div>
+          {/* Common Button */}
+          <div className="flex justify-center mt-8">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                type="primary"
+                size="large"
+                style={{
+                  backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                  border: "none",
+                  boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                  transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                }}
+                className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                onClick={() => {
+                  const formSection = document.getElementById("contact");
+                  if (formSection) {
+                    formSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                SkyRocket Grow My Business{" "}
+                <FiArrowRight className="inline ml-1" />
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1011,7 +1159,7 @@ const Home = () => {
                   textShadow: `0 0 10px ${colors.glowEffect}`,
                 }}
               >
-                MASTER.aiX
+                MASTERaiX
               </span>{" "}
               Works (While You Focus on Growth)
             </h2>
@@ -1112,6 +1260,211 @@ const Home = () => {
               </div>
             </div>
           </div>
+          {/* Common Button */}
+          <div className="flex justify-center mt-8">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                type="primary"
+                size="large"
+                style={{
+                  backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                  border: "none",
+                  boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                  transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                }}
+                className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                onClick={() => {
+                  const formSection = document.getElementById("contact");
+                  if (formSection) {
+                    formSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                SkyRocket Grow My Business{" "}
+                <FiArrowRight className="inline ml-1" />
+              </Button>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Comparison Section */}
+      <section className="py-16" style={{ background: colors.darkBlue }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
+          <motion.h2
+            className="text-3xl md:text-4xl font-bold text-center mb-12"
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            viewport={{ once: true }}
+            style={{ color: colors.white }}
+          >
+            Why <span style={{ color: colors.electricPurple }}>MasteraiX</span>{" "}
+            Outperforms
+            <br />
+            Other Sales Tools
+          </motion.h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            {/* Left: Images */}
+            <motion.div
+              className="flex justify-center relative"
+              initial={{ opacity: 0, x: -50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              {/* Laptop Image with glow effect */}
+              <div className="relative">
+                <img
+                  src="/images/laptop.png"
+                  alt="Masteraix Dashboard"
+                  className="w-full max-w-md rounded-lg shadow-lg z-10 relative"
+                />
+                <div
+                  className="absolute inset-0 rounded-lg z-0 opacity-70"
+                  style={{
+                    background: `radial-gradient(circle at center, ${colors.glowEffect} 0%, transparent 70%)`,
+                    filter: "blur(20px)",
+                    top: "20%",
+                    left: "20%",
+                    right: "20%",
+                    bottom: "20%",
+                  }}
+                />
+              </div>
+
+              {/* Phone Image with glow */}
+              <div className="absolute -right-10 bottom-0 z-20">
+                <img
+                  src="/images/phone.png"
+                  alt="Masteraix Mobile"
+                  className="w-40 md:w-48 rounded-xl shadow-lg"
+                />
+                <div
+                  className="absolute inset-0 rounded-xl z-0 opacity-50"
+                  style={{
+                    background: `radial-gradient(circle at center, ${colors.neonViolet} 0%, transparent 70%)`,
+                    filter: "blur(15px)",
+                    top: "10%",
+                    left: "10%",
+                    right: "10%",
+                    bottom: "10%",
+                  }}
+                />
+              </div>
+            </motion.div>
+
+            {/* Right: Text */}
+            <motion.div
+              initial={{ opacity: 0, x: 50 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+            >
+              <h3
+                className="text-xl md:text-2xl font-semibold mb-4"
+                style={{ color: colors.neonViolet }}
+              >
+                <FaBolt className="inline mr-2" />
+                Never Let Hot Leads Go Cold Again
+              </h3>
+              <p className="mb-6" style={{ color: colors.secondaryText }}>
+                While other tools make you wait, Masteraix's AI engages leads
+                instantly - the moment they show interest.
+              </p>
+
+              {/* Points */}
+              <ul className="space-y-4 mb-8">
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaCheckSquare
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>Instant responses</strong> - AI talks to leads
+                    within seconds, not hours
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaFilter
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>Smart qualification</strong> - Filters based on your
+                    specific business rules
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaUserFriends
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>Seamless handoff</strong> - Routes only sales-ready
+                    leads to your team
+                  </span>
+                </motion.li>
+              </ul>
+
+              {/* Result Card */}
+              <motion.div
+                className="p-4 rounded-lg border"
+                initial={{ scale: 0.95 }}
+                whileInView={{ scale: 1 }}
+                transition={{ duration: 0.4 }}
+                style={{
+                  background: `linear-gradient(135deg, ${colors.deepPurple} 0%, ${colors.navy} 100%)`,
+                  borderColor: colors.electricPurple,
+                }}
+              >
+                <p
+                  className="text-sm font-medium mb-2"
+                  style={{ color: colors.glowEffect }}
+                >
+                  THE RESULT
+                </p>
+                <p
+                  className="font-semibold text-lg"
+                  style={{ color: colors.white }}
+                >
+                  Zero lost opportunities. Only qualified leads that convert.
+                </p>
+              </motion.div>
+
+              {/* CTA Button */}
+              {/* Common Button */}
+              <div className="flex justify-center mt-8">
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <Button
+                    type="primary"
+                    size="large"
+                    style={{
+                      backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                      border: "none",
+                      boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                      transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                    }}
+                    className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                    onClick={() => {
+                      const formSection = document.getElementById("contact");
+                      if (formSection) {
+                        formSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    SkyRocket Grow My Business{" "}
+                    <FiArrowRight className="inline ml-1" />
+                  </Button>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -1135,7 +1488,7 @@ const Home = () => {
               >
                 1,000+ Businesses
               </span>{" "}
-              Chose MASTER.aiX
+              Choose MASTERaiX
             </h2>
           </motion.div>
 
@@ -1150,13 +1503,69 @@ const Home = () => {
             <p className="text-center mb-8 text-gray-400">
               Trusted by market leaders across India:
             </p>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-8">
-              {logos.map((logo, index) => (
+
+            {/* First row of 5 logos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8">
+              {logos.slice(0, 5).map((logo, index) => (
                 <div
                   key={index}
                   className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
                 >
-                  <span className="font-medium text-white">{logo}</span>
+                  {logo.type === "image" ? (
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-12 max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="font-medium text-white">
+                      {logo.content}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Second row of 5 logos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8">
+              {logos.slice(5, 10).map((logo, index) => (
+                <div
+                  key={index + 5}
+                  className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
+                >
+                  {logo.type === "image" ? (
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-12 max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="font-medium text-white">
+                      {logo.content}
+                    </span>
+                  )}
+                </div>
+              ))}
+            </div>
+
+            {/* Third row of 5 logos */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
+              {logos.slice(10, 15).map((logo, index) => (
+                <div
+                  key={index + 10}
+                  className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
+                >
+                  {logo.type === "image" ? (
+                    <img
+                      src={logo.src}
+                      alt={logo.alt}
+                      className="max-h-12 max-w-full object-contain"
+                    />
+                  ) : (
+                    <span className="font-medium text-white">
+                      {logo.content}
+                    </span>
+                  )}
                 </div>
               ))}
             </div>
@@ -1176,9 +1585,17 @@ const Home = () => {
           >
             <p className="text-xl mb-4 text-white">
               <span className="font-bold">
-                {businessesAutomated.toLocaleString()}
+                {businessesAutomated.toLocaleString()}+
               </span>{" "}
-              businesses automated last month
+              Business Automated last year
+            </p>
+            <p className="text-xl mb-4 text-white">
+              <span className="text-green-600">3 LK + Messages</span> Automated
+              Using AI on WhatsApp
+            </p>
+            <p className="text-xl md:text-2xl font-bold mb-6 text-white bg-gradient-to-r from-green-500 to-emerald-600 py-3 px-6 rounded-lg shadow-lg inline-block">
+              Increase business by <span className="text-yellow-300">30%</span>{" "}
+              in just <span className="text-yellow-300">30 days</span>
             </p>
             <p className="text-lg text-gray-300">
               Next onboarding slot opens in:
@@ -1187,6 +1604,94 @@ const Home = () => {
                 {timeLeft.seconds.toString().padStart(2, "0")}
               </span>
             </p>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Wins Section */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.h2
+              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              viewport={{ once: true }}
+            >
+              Real Client Success Stories
+            </motion.h2>
+            <motion.p
+              className="text-lg text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.2 }}
+              viewport={{ once: true }}
+            >
+              See how businesses like yours achieved remarkable results
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {winsData.map((win, index) => (
+              <motion.div
+                key={index}
+                className={`flex flex-col p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow ${win.bgColor}`}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                viewport={{ once: true }}
+              >
+                <div className="flex items-center mb-4">
+                  <div
+                    className={`flex items-center justify-center w-12 h-12 rounded-lg ${win.iconBg} text-white mr-4`}
+                  >
+                    {win.icon}
+                  </div>
+                  <h3 className={`text-lg font-semibold ${win.textColor}`}>
+                    {win.text.split(" ")[0]} {win.text.split(" ")[1]}
+                  </h3>
+                </div>
+                <p className="text-gray-700">{win.text}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            className="mt-16 text-center"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            viewport={{ once: true }}
+          >
+            {/* Common Button */}
+            <div className="flex justify-center mt-8">
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                <Button
+                  type="primary"
+                  size="large"
+                  style={{
+                    backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                    border: "none",
+                    boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                    transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                  }}
+                  className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                  onClick={() => {
+                    const formSection = document.getElementById("contact");
+                    if (formSection) {
+                      formSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                >
+                  SkyRocket Grow My Business{" "}
+                  <FiArrowRight className="inline ml-1" />
+                </Button>
+              </motion.div>
+            </div>
           </motion.div>
         </div>
       </section>
@@ -1232,7 +1737,7 @@ const Home = () => {
                       <FiCheck className="text-white text-sm" />
                     </div>
                     <span className="text-gray-300">
-                      Where leads are slipping through
+                      Scale your business 10x
                     </span>
                   </li>
                   <li className="flex items-start">
@@ -1263,6 +1768,20 @@ const Home = () => {
                       Custom automation strategy
                     </span>
                   </li>
+                  <li className="flex items-start">
+                    <div
+                      className="rounded-full p-1 mr-3 mt-1"
+                      style={{
+                        backgroundColor: `${colors.neonViolet}20`,
+                        boxShadow: `0 0 5px ${colors.neonViolet}`,
+                      }}
+                    >
+                      <FiCheck className="text-white text-sm" />
+                    </div>
+                    <span className="text-gray-300">
+                      Your Automated Marketing & sales manager
+                    </span>
+                  </li>
                 </ul>
 
                 <div
@@ -1274,120 +1793,29 @@ const Home = () => {
                   }}
                 >
                   <p className="text-sm text-white">
-                    <span className="font-semibold">⚠ Final Warning:</span> Last
-                    3 Implementation Slots Available This Week
+                    <span className="font-semibold">⚠ Final Warning:</span>{" "}
+                    These is only for people who want to grow there business for
+                    real
                   </p>
                 </div>
               </div>
 
               <div className="p-8 md:p-12 bg-[#1c1c3c]">
-                <Form
-                  name="inquiry"
-                  onFinish={onFinish}
-                  layout="vertical"
-                  requiredMark={false}
-                >
-                  <Form.Item
-                    name="name"
-                    rules={[
-                      { required: true, message: "Please enter your name" },
-                    ]}
-                  >
-                    <Input
-                      size="large"
-                      placeholder="Your Name"
-                      className="bg-[#0a0a23] border-[#2b0d3a] text-white"
-                    />
-                  </Form.Item>
-
-                  <Form.Item
-                    name="businessType"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please select your business type",
-                      },
-                    ]}
-                  >
-                    <Select
-                      size="large"
-                      placeholder="Business Type"
-                      className="bg-[#0a0a23] border-[#2b0d3a] text-white"
-                    >
-                      {businessTypes.map((type, index) => (
-                        <Option key={index} value={type}>
-                          {type}
-                        </Option>
-                      ))}
-                    </Select>
-                  </Form.Item>
-
-                  <Form.Item
-                    name="leadStruggle"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please select your biggest struggle",
-                      },
-                    ]}
-                  >
-                    <Select
-                      size="large"
-                      placeholder="Biggest Lead Generation Struggle?"
-                      className="bg-[#0a0a23] border-[#2b0d3a] text-white"
-                    >
-                      {leadStruggles.map((struggle, index) => (
-                        <Option key={index} value={struggle}>
-                          {struggle}
-                        </Option>
-                      ))}
-                    </Select>
-                  </Form.Item>
-
-                  <Form.Item
-                    name="whatsappNumber"
-                    rules={[
-                      {
-                        required: true,
-                        message: "Please enter your WhatsApp number",
-                      },
-                      {
-                        pattern: /^[0-9]+$/,
-                        message: "Please enter a valid number",
-                      },
-                    ]}
-                  >
-                    <Input
-                      size="large"
-                      placeholder="WhatsApp Number"
-                      prefix={<FaWhatsapp className="text-gray-400" />}
-                      className="bg-[#0a0a23] border-[#2b0d3a] text-white"
-                    />
-                  </Form.Item>
-
-                  <Form.Item>
-                    <motion.div
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
-                    >
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                        size="large"
-                        block
-                        style={{
-                          background: `linear-gradient(135deg, ${colors.buttonGradientStart}, ${colors.buttonGradientEnd})`,
-                          border: "none",
-                          boxShadow: `0 0 15px ${colors.glowEffect}`,
-                        }}
-                        className="font-semibold h-12"
-                      >
-                        Get My FREE Lead Recovery Plan{" "}
-                        <FiArrowRight className="inline ml-2" />
-                      </Button>
-                    </motion.div>
-                  </Form.Item>
-                </Form>
+                <iframe
+                  src="https://admin.masteraix.io/widget/form/689b14dc9521c"
+                  style={{
+                    width: "100%",
+                    height: "600px",
+                    border: "none",
+                    borderRadius: "3px",
+                  }}
+                  id="inline-689b14dc9521c"
+                  data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
+                  data-layout-iframe-id="inline-689b14dc9521c"
+                  data-form-id="689b14dc9521c"
+                  data-height="600"
+                  title="MasteraiX 95875lpkjh,numgkhnvum"
+                />
 
                 <div className="mt-4 flex items-center text-sm text-gray-400">
                   <FiLock className="mr-2" />
@@ -1396,7 +1824,10 @@ const Home = () => {
 
                 <div className="mt-2 flex items-center text-sm text-gray-400">
                   <FiClock className="mr-2" />
-                  <span>You'll get a custom report within 1 hour</span>
+                  <span className=" font-bold">
+                    Experience business automation{" "}
+                    <span className="text-green-600">right now</span>
+                  </span>
                 </div>
               </div>
             </div>
@@ -1450,7 +1881,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">MASTER.aiX</h3>
+              <h3 className="text-xl font-bold mb-4">MASTERaiX</h3>
               <p className="text-gray-400">
                 Your 24/7 AI sales machine that never sleeps
               </p>
@@ -1472,12 +1903,6 @@ const Home = () => {
                   className="text-gray-400 hover:text-white transition"
                 >
                   <FaLinkedin className="text-xl" />
-                </a>
-                <a
-                  href="#"
-                  className="text-gray-400 hover:text-white transition"
-                >
-                  <FaYoutube className="text-xl" />
                 </a>
               </div>
             </div>
@@ -1534,17 +1959,17 @@ const Home = () => {
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Careers
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Contact
                   </a>
                 </li>
@@ -1558,7 +1983,7 @@ const Home = () => {
           </div>
 
           <div className="border-t border-[#2b0d3a] mt-12 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} MASTER.aiX. All rights reserved.</p>
+            <p>© {new Date().getFullYear()} MASTERaiX. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -1575,7 +2000,7 @@ const Home = () => {
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-[#1c1c3c] rounded-xl p-6 max-w-md w-full relative border border-[#2b0d3a]"
+              className="bg-[#1c1c3c] rounded-xl w-full max-w-3xl relative border border-[#2b0d3a]"
               style={{ boxShadow: `0 0 30px ${colors.deepPurple}` }}
             >
               <button
@@ -1585,46 +2010,24 @@ const Home = () => {
                 <FiX className="text-xl" />
               </button>
 
-              <h3 className="text-xl font-bold mb-4 text-white">
-                Wait! Get Our FREE Guide
-              </h3>
-              <p className="mb-6 text-gray-400">
-                "5 Automation Hacks to Double Your Leads"
-              </p>
-
-              <Form>
-                <Form.Item
-                  name="email"
-                  rules={[
-                    {
-                      required: true,
-                      type: "email",
-                      message: "Please enter a valid email",
-                    },
-                  ]}
-                >
-                  <Input
-                    size="large"
-                    placeholder="Your Email Address"
-                    className="bg-[#0a0a23] border-[#2b0d3a] text-white"
+              <div className="p-6 md:p-8">
+                <div className="mb-6">
+                  <iframe
+                    src="https://admin.masteraix.io/widget/form/689b14dc9521c"
+                    style={{
+                      width: "100%",
+                      height: "500px",
+                      border: "none",
+                      borderRadius: "8px",
+                    }}
+                    id="inline-689b14dc9521c"
+                    data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
+                    data-layout-iframe-id="inline-689b14dc9521c"
+                    data-form-id="689b14dc9521c"
+                    title="MasteraiX Form"
                   />
-                </Form.Item>
-
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  size="large"
-                  block
-                  style={{
-                    background: `linear-gradient(135deg, ${colors.buttonGradientStart}, ${colors.buttonGradientEnd})`,
-                    border: "none",
-                    boxShadow: `0 0 15px ${colors.glowEffect}`,
-                  }}
-                  className="font-semibold"
-                >
-                  Send Me the Guide <FiArrowRight className="inline ml-2" />
-                </Button>
-              </Form>
+                </div>
+              </div>
             </motion.div>
           </motion.div>
         )}
