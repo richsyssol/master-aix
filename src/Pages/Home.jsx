@@ -431,6 +431,99 @@ const Home = () => {
     secondaryText: "#bfbfbf",
   };
 
+  //Industries section
+  const [activeIndustry, setActiveIndustry] = useState(0);
+
+  const industries = [
+    {
+      name: "Real Estate",
+      icon: "🏠",
+      steps: [
+        "Capture property inquiries from website/ads",
+        "Auto WhatsApp follow-up",
+        "Site visit booking",
+      ],
+      bg: "from-[#2b0d3a] to-[#1c1c3c]",
+    },
+    {
+      name: "Tours & Travels",
+      icon: "✈️",
+      steps: [
+        "Enquiry from travel ad",
+        "Automated brochure via WhatsApp",
+        "Payment & itinerary flow",
+      ],
+      bg: "from-[#1c1c3c] to-[#0a0a23]",
+    },
+    {
+      name: "Coaching Institute",
+      icon: "🎓",
+      steps: [
+        "Lead from seminar form",
+        "Auto send course details",
+        "LMS access + demo booking",
+      ],
+      bg: "from-[#2b0d3a] to-[#6a0dad]",
+    },
+    {
+      name: "Wellness & Fitness",
+      icon: "💪",
+      steps: [
+        "Gym enquiry via ad",
+        "Auto send packages",
+        "Calendar booking for visit",
+      ],
+      bg: "from-[#1c1c3c] to-[#b94dff]",
+    },
+    {
+      name: "Automobile Sales",
+      icon: "🚗",
+      steps: [
+        "Brochure + Test drive booking",
+        "Finance option auto-replies",
+        "Final deal flow",
+      ],
+      bg: "from-[#6a0dad] to-[#ff00ff]",
+    },
+    {
+      name: "Manufacturing",
+      icon: "🏭",
+      steps: [
+        "B2B lead from trade portal",
+        "Product catalog on WhatsApp",
+        "Sales rep follow-up",
+      ],
+      bg: "from-[#2b0d3a] to-[#1c1c3c]",
+    },
+    {
+      name: "Consultants",
+      icon: "📊",
+      steps: [
+        "Lead fills form",
+        "Auto send portfolio & case studies",
+        "Booking link for 1-on-1 call",
+      ],
+      bg: "from-[#1c1c3c] to-[#0a0a23]",
+    },
+    {
+      name: "Service Providers",
+      icon: "🔧",
+      steps: [
+        "Form fill for AC repair",
+        "WhatsApp quote",
+        "Technician assignment & updates",
+      ],
+      bg: "from-[#2b0d3a] to-[#6a0dad]",
+    },
+  ];
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentStep((prev) => (prev < steps.length - 1 ? prev + 1 : 0));
+    }, 3000);
+    return () => clearInterval(timer);
+  }, []);
+
   // Comparison section
 
   const smartWayFeatures = [
@@ -1398,6 +1491,162 @@ const Home = () => {
         </div>
       </section>
 
+      {/* IndustriesUse Cases */}
+
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a23]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              <span className="text-[#b94dff]">Automation</span> For All
+              Industries
+            </h2>
+            <p className="text-[#bfbfbf] max-w-2xl mx-auto">
+              Customized workflows that match your specific business needs
+            </p>
+          </motion.div>
+
+          <div className="flex flex-col lg:flex-row gap-8">
+            {/* Industry Selector */}
+            <div className="lg:w-1/4">
+              <div className="bg-[#1c1c3c] rounded-xl p-2 border border-[#6a0dad]">
+                {industries.map((industry, index) => (
+                  <motion.button
+                    key={index}
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setActiveIndustry(index)}
+                    className={`w-full text-left p-4 rounded-lg mb-2 transition-all ${
+                      activeIndustry === index
+                        ? "bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white"
+                        : "bg-[#0a0a23] text-[#bfbfbf] hover:bg-[#2b0d3a]"
+                    }`}
+                  >
+                    <div className="flex items-center gap-3">
+                      <span className="text-2xl">{industry.icon}</span>
+                      <span className="font-medium">{industry.name}</span>
+                    </div>
+                  </motion.button>
+                ))}
+              </div>
+            </div>
+
+            {/* Workflow Display */}
+            <div className="lg:w-3/4">
+              <motion.div
+                key={activeIndustry}
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5 }}
+                className={`bg-gradient-to-br ${industries[activeIndustry].bg} rounded-xl p-8 border-2 border-[#6a0dad] shadow-lg h-full`}
+              >
+                <div className="flex items-center gap-4 mb-8">
+                  <motion.div
+                    animate={{ rotate: [0, 10, -10, 0] }}
+                    transition={{ duration: 0.7 }}
+                    className="text-5xl"
+                  >
+                    {industries[activeIndustry].icon}
+                  </motion.div>
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                    {industries[activeIndustry].name} Workflow
+                  </h3>
+                </div>
+
+                <div className="space-y-6">
+                  {industries[activeIndustry].steps.map((step, index) => (
+                    <motion.div
+                      key={index}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.5, delay: index * 0.1 }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="flex-shrink-0 mt-1">
+                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] flex items-center justify-center">
+                          <span className="text-sm font-bold text-white">
+                            {index + 1}
+                          </span>
+                        </div>
+                      </div>
+                      <div>
+                        <p className="text-white">{step}</p>
+                        {index <
+                          industries[activeIndustry].steps.length - 1 && (
+                          <motion.div
+                            initial={{ height: 0 }}
+                            animate={{ height: 20 }}
+                            transition={{ delay: 0.3 }}
+                            className="w-0.5 bg-[#b94dff] ml-3 my-1"
+                          />
+                        )}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 }}
+                  className="mt-8 pt-6 border-t border-[#6a0dad]"
+                >
+                  <motion.button
+                    whileHover={{
+                      scale: 1.03,
+                      boxShadow: "0 0 20px rgba(214, 93, 249, 0.5)",
+                    }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => {
+                      const formSection = document.getElementById("contact");
+                      if (formSection) {
+                        formSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                    className="px-6 py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full"
+                  >
+                    Get {industries[activeIndustry].name} Automation
+                  </motion.button>
+                </motion.div>
+              </motion.div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-center mt-16"
+          >
+            <h3 className="text-xl font-bold text-white mb-4">
+              Ready to automate your industry workflow?
+            </h3>
+            <motion.button
+              whileHover={{
+                scale: 1.05,
+                boxShadow: "0 0 25px rgba(214, 93, 249, 0.6)",
+              }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                const formSection = document.getElementById("contact");
+                if (formSection) {
+                  formSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="px-8 py-4 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-lg"
+            >
+              Request Custom Demo
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Comparison Section */}
       <section className="py-16" style={{ background: colors.darkBlue }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2126,7 +2375,7 @@ const Home = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Updates
                   </a>
                 </li>
@@ -2137,22 +2386,22 @@ const Home = () => {
               <h4 className="font-semibold mb-4">Resources</h4>
               <ul className="space-y-2 text-gray-400">
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Blog
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Help Center
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Tutorials
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Community
                   </a>
                 </li>
@@ -2178,7 +2427,7 @@ const Home = () => {
                   </a>
                 </li>
                 <li>
-                  <a href="#" className="hover:text-white transition">
+                  <a href="#contact" className="hover:text-white transition">
                     Legal
                   </a>
                 </li>
