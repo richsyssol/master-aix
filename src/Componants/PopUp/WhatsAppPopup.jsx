@@ -36,7 +36,9 @@ function WhatsAppPopup() {
   }, [show]);
 
   return (
-    <div className="fixed bottom-20  right-4 z-100">
+    <div className="fixed bottom-8 right-14 z-50">
+      {" "}
+      {/* Changed positioning and z-index */}
       {/* Popup - positioned absolutely above the button */}
       <AnimatePresence>
         {show && (
@@ -147,7 +149,6 @@ function WhatsAppPopup() {
           </motion.div>
         )}
       </AnimatePresence>
-
       {/* Floating Button with AI animation */}
       <motion.div
         className="relative"
@@ -172,7 +173,7 @@ function WhatsAppPopup() {
             boxShadow: `0 0 15px ${colors.glowEffect}`,
           }}
         >
-          <div className="absolute top-2 right-2">
+          <div className="absolute -top-2 -right-2">
             <div className="relative w-6 h-6">
               <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-sm"></div>
               <div

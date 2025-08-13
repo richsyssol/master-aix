@@ -689,14 +689,14 @@ const Home = () => {
                 Features
               </a>
               <a
-                href="#how-it-works"
+                href="#automation"
                 className="text-gray-300 hover:text-white transition"
               >
                 How It Works
               </a>
 
               <a
-                href="#testimonials"
+                href="#result"
                 className="text-gray-300 hover:text-white transition"
               >
                 Results
@@ -780,14 +780,14 @@ const Home = () => {
                   Features
                 </a>
                 <a
-                  href="#how-it-works"
+                  href="#automation"
                   className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   How It Works
                 </a>
                 <a
-                  href="#contact"
+                  href="#result"
                   className="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white"
                   onClick={() => setIsMenuOpen(false)}
                 >
@@ -956,7 +956,7 @@ const Home = () => {
                       border: "none",
                       boxShadow: `0 0 15px ${colors.glowEffect}`,
                     }}
-                    className="font-semibold h-14 text-lg"
+                    className="font-semibold h-10 md:h-14 text-base md:text-lg"
                     onClick={() => {
                       const formSection = document.getElementById("contact");
                       if (formSection) {
@@ -965,7 +965,7 @@ const Home = () => {
                     }}
                   >
                     Get Your FREE Lead Recovery Audit{" "}
-                    <FiArrowRight className="inline ml-2" />
+                    <FiArrowRight className="inline ml-1 md:ml-2" />
                   </Button>
                 </motion.div>
 
@@ -1102,8 +1102,8 @@ const Home = () => {
               </motion.div>
 
               {/* Floating AI robot animation */}
-              <motion.div
-                className="relative top-10 right-10"
+              {/* <motion.div
+                className="relative  left-50 right-10"
                 animate={{
                   y: [0, -20, 0],
                   rotate: [0, 5, -5, 0],
@@ -1126,7 +1126,7 @@ const Home = () => {
                     <span className="text-white text-2xl">🤖</span>
                   </div>
                 </div>
-              </motion.div>
+              </motion.div> */}
             </motion.div>
           </div>
 
@@ -1493,46 +1493,55 @@ const Home = () => {
 
       {/* IndustriesUse Cases */}
 
-      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a23]">
+      <section
+        id="automation"
+        className=" py-12 md:py-20 px-4 sm:px-6 lg:px-8 bg-[#0a0a23]"
+      >
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-8 md:mb-16"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">
               <span className="text-[#b94dff]">Automation</span> For All
               Industries
             </h2>
-            <p className="text-[#bfbfbf] max-w-2xl mx-auto">
+            <p className="text-[#bfbfbf] max-w-2xl mx-auto text-sm md:text-base">
               Customized workflows that match your specific business needs
             </p>
           </motion.div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            {/* Industry Selector */}
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-8">
+            {/* Industry Selector - 2 columns on mobile */}
             <div className="lg:w-1/4">
               <div className="bg-[#1c1c3c] rounded-xl p-2 border border-[#6a0dad]">
-                {industries.map((industry, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{ scale: 1.02 }}
-                    whileTap={{ scale: 0.98 }}
-                    onClick={() => setActiveIndustry(index)}
-                    className={`w-full text-left p-4 rounded-lg mb-2 transition-all ${
-                      activeIndustry === index
-                        ? "bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white"
-                        : "bg-[#0a0a23] text-[#bfbfbf] hover:bg-[#2b0d3a]"
-                    }`}
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-2xl">{industry.icon}</span>
-                      <span className="font-medium">{industry.name}</span>
-                    </div>
-                  </motion.button>
-                ))}
+                <div className="grid grid-cols-2 md:grid-cols-1 gap-2">
+                  {industries.map((industry, index) => (
+                    <motion.button
+                      key={index}
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={() => setActiveIndustry(index)}
+                      className={`w-full text-left p-3 md:p-4 rounded-lg transition-all ${
+                        activeIndustry === index
+                          ? "bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white"
+                          : "bg-[#0a0a23] text-[#bfbfbf] hover:bg-[#2b0d3a]"
+                      }`}
+                    >
+                      <div className="flex items-center gap-2 md:gap-3">
+                        <span className="text-xl md:text-2xl">
+                          {industry.icon}
+                        </span>
+                        <span className="font-medium text-sm md:text-base">
+                          {industry.name}
+                        </span>
+                      </div>
+                    </motion.button>
+                  ))}
+                </div>
               </div>
             </div>
 
@@ -1543,39 +1552,41 @@ const Home = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className={`bg-gradient-to-br ${industries[activeIndustry].bg} rounded-xl p-8 border-2 border-[#6a0dad] shadow-lg h-full`}
+                className={`bg-gradient-to-br ${industries[activeIndustry].bg} rounded-xl p-4 md:p-8 border-2 border-[#6a0dad] shadow-lg h-full`}
               >
-                <div className="flex items-center gap-4 mb-8">
+                <div className="flex items-center gap-3 md:gap-4 mb-6 md:mb-8">
                   <motion.div
                     animate={{ rotate: [0, 10, -10, 0] }}
                     transition={{ duration: 0.7 }}
-                    className="text-5xl"
+                    className="text-3xl md:text-5xl"
                   >
                     {industries[activeIndustry].icon}
                   </motion.div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
+                  <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
                     {industries[activeIndustry].name} Workflow
                   </h3>
                 </div>
 
-                <div className="space-y-6">
+                <div className="space-y-4 md:space-y-6">
                   {industries[activeIndustry].steps.map((step, index) => (
                     <motion.div
                       key={index}
                       initial={{ opacity: 0, x: -20 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ duration: 0.5, delay: index * 0.1 }}
-                      className="flex items-start gap-4"
+                      className="flex items-start gap-3 md:gap-4"
                     >
                       <div className="flex-shrink-0 mt-1">
-                        <div className="w-8 h-8 rounded-full bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] flex items-center justify-center">
-                          <span className="text-sm font-bold text-white">
+                        <div className="w-6 h-6 md:w-8 md:h-8 rounded-full bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] flex items-center justify-center">
+                          <span className="text-xs md:text-sm font-bold text-white">
                             {index + 1}
                           </span>
                         </div>
                       </div>
                       <div>
-                        <p className="text-white">{step}</p>
+                        <p className="text-white text-sm md:text-base">
+                          {step}
+                        </p>
                         {index <
                           industries[activeIndustry].steps.length - 1 && (
                           <motion.div
@@ -1594,7 +1605,7 @@ const Home = () => {
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   transition={{ delay: 0.5 }}
-                  className="mt-8 pt-6 border-t border-[#6a0dad]"
+                  className="mt-6 md:mt-8 pt-4 md:pt-6 border-t border-[#6a0dad]"
                 >
                   <motion.button
                     whileHover={{
@@ -1608,7 +1619,7 @@ const Home = () => {
                         formSection.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="px-6 py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full"
+                    className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-sm md:text-base"
                   >
                     Get {industries[activeIndustry].name} Automation
                   </motion.button>
@@ -1622,9 +1633,9 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-center mt-16"
+            className="text-center mt-8 md:mt-16"
           >
-            <h3 className="text-xl font-bold text-white mb-4">
+            <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
               Ready to automate your industry workflow?
             </h3>
             <motion.button
@@ -1639,7 +1650,7 @@ const Home = () => {
                   formSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-8 py-4 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-lg"
+              className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-base md:text-lg"
             >
               Request Custom Demo
             </motion.button>
@@ -1828,22 +1839,27 @@ const Home = () => {
       </section>
 
       {/* Social Proof Section */}
-      <section className="py-16" style={{ backgroundColor: colors.navy }}>
+      <section
+        className="py-12 md:py-16"
+        style={{ backgroundColor: colors.navy }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Title Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-8 md:mb-12"
           >
-            <h2 className="text-3xl font-bold text-white">
+            <h2 className="text-2xl md:text-3xl font-bold text-white px-2">
               Why{" "}
               <span
                 style={{
                   color: colors.neonViolet,
                   textShadow: `0 0 10px ${colors.glowEffect}`,
                 }}
+                className="whitespace-nowrap"
               >
                 1,000+ Businesses
               </span>{" "}
@@ -1857,71 +1873,27 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mb-16"
+            className="mb-12 md:mb-16"
           >
-            <p className="text-center mb-8 text-gray-400">
+            <p className="text-center mb-6 md:mb-8 text-gray-400 text-sm md:text-base">
               Trusted by market leaders across India:
             </p>
 
-            {/* First row of 5 logos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8">
-              {logos.slice(0, 5).map((logo, index) => (
+            {/* Logo Grid - Responsive */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6">
+              {logos.map((logo, index) => (
                 <div
                   key={index}
-                  className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
+                  className="bg-[#1c1c3c] p-3 md:p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-16 md:h-20"
                 >
                   {logo.type === "image" ? (
                     <img
                       src={logo.src}
                       alt={logo.alt}
-                      className="max-h-12 max-w-full object-contain"
+                      className="max-h-8 md:max-h-12 max-w-full object-contain"
                     />
                   ) : (
-                    <span className="font-medium text-white">
-                      {logo.content}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Second row of 5 logos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8 mb-8">
-              {logos.slice(5, 10).map((logo, index) => (
-                <div
-                  key={index + 5}
-                  className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
-                >
-                  {logo.type === "image" ? (
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="max-h-12 max-w-full object-contain"
-                    />
-                  ) : (
-                    <span className="font-medium text-white">
-                      {logo.content}
-                    </span>
-                  )}
-                </div>
-              ))}
-            </div>
-
-            {/* Third row of 5 logos */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-8">
-              {logos.slice(10, 15).map((logo, index) => (
-                <div
-                  key={index + 10}
-                  className="bg-[#1c1c3c] p-4 rounded-lg shadow-sm border border-[#2b0d3a] flex items-center justify-center h-20"
-                >
-                  {logo.type === "image" ? (
-                    <img
-                      src={logo.src}
-                      alt={logo.alt}
-                      className="max-h-12 max-w-full object-contain"
-                    />
-                  ) : (
-                    <span className="font-medium text-white">
+                    <span className="font-medium text-white text-sm md:text-base">
                       {logo.content}
                     </span>
                   )}
@@ -1936,29 +1908,31 @@ const Home = () => {
             whileInView={{ opacity: 1 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="mt-16 rounded-2xl p-6 text-center border border-[#2b0d3a]"
+            className="mt-8 md:mt-16 rounded-xl md:rounded-2xl p-4 md:p-6 text-center border border-[#2b0d3a] mx-2 md:mx-0"
             style={{
               background: `linear-gradient(135deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
               boxShadow: `0 0 30px ${colors.deepPurple}`,
             }}
           >
-            <p className="text-xl mb-4 text-white">
+            <p className="text-base md:text-xl mb-3 md:mb-4 text-white">
               <span className="font-bold">
                 {businessesAutomated.toLocaleString()}+
               </span>{" "}
               Business Automated last year
             </p>
-            <p className="text-xl mb-4 text-white">
-              <span className="text-green-600">3 LK + Messages</span> Automated
-              Using AI on WhatsApp
+            <p className="text-base md:text-xl mb-3 md:mb-4 text-white">
+              <span className="text-green-400 md:text-green-600">
+                3 LK + Messages
+              </span>{" "}
+              Automated Using AI on WhatsApp
             </p>
-            <p className="text-xl md:text-2xl font-bold mb-6 text-white bg-gradient-to-r from-green-500 to-emerald-600 py-3 px-6 rounded-lg shadow-lg inline-block">
+            <p className="text-base md:text-xl lg:text-2xl font-bold mb-4 md:mb-6 text-white bg-gradient-to-r from-green-500 to-emerald-600 py-2 md:py-3 px-4 md:px-6 rounded-lg shadow-lg inline-block">
               Increase business by <span className="text-yellow-300">30%</span>{" "}
               in just <span className="text-yellow-300">30 days</span>
             </p>
-            <p className="text-lg text-gray-300">
-              Next onboarding slot opens in:
-              <span className="font-bold ml-2 text-white">
+            <p className="text-sm md:text-base text-gray-300">
+              Next onboarding slot opens in:{" "}
+              <span className="font-bold ml-1 md:ml-2 text-white">
                 {timeLeft.hours}:{timeLeft.minutes.toString().padStart(2, "0")}:
                 {timeLeft.seconds.toString().padStart(2, "0")}
               </span>
@@ -1968,7 +1942,7 @@ const Home = () => {
       </section>
 
       {/* Wins Section */}
-      <section className="py-16 bg-gray-50">
+      <section id="result" className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
@@ -2058,34 +2032,37 @@ const Home = () => {
       {/* Comparison section */}
       <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a23]">
         <div className="max-w-7xl mx-auto">
+          {/* Header */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8 }}
             className="text-center mb-12"
           >
-            <h2 className="text-3xl sm:text-4xl font-bold text-[#ffffff] mb-4">
-              The <span className="text-[#b94dff]">Smart Way</span> vs The{" "}
-              <span className="text-[#a8a8a8]">Old Way</span>
+            <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
+              The <span className="text-green-400">Smart Way</span> vs The{" "}
+              <span className="text-red-400">Old Way</span>
             </h2>
-            <p className="text-[#bfbfbf] max-w-2xl mx-auto">
+            <p className="text-gray-400 max-w-2xl mx-auto">
               Transform your lead management with AI-powered automation that
               works 24/7 while you sleep
             </p>
           </motion.div>
 
+          {/* Comparison Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {/* Smart Way Column */}
             <div>
               <motion.div
                 initial={{ x: -20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="mb-6 p-4 bg-[#2b0d3a] rounded-lg border border-[#6a0dad]"
+                className="mb-6 p-4 bg-green-900 rounded-lg border border-green-400"
               >
-                <h3 className="text-2xl font-bold text-[#ffffff] mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   The Smart Way
                 </h3>
-                <p className="text-[#bfbfbf]">(Master AIX Automation)</p>
+                <p className="text-green-300">(Master AIX Automation)</p>
               </motion.div>
 
               <div className="space-y-4">
@@ -2101,17 +2078,18 @@ const Home = () => {
               </div>
             </div>
 
+            {/* Old Way Column */}
             <div>
               <motion.div
                 initial={{ x: 20, opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 transition={{ duration: 0.5 }}
-                className="mb-6 p-4 bg-[#0a0a23] rounded-lg border border-[#a8a8a8]"
+                className="mb-6 p-4 bg-red-900 rounded-lg border border-red-400"
               >
-                <h3 className="text-2xl font-bold text-[#a8a8a8] mb-2">
+                <h3 className="text-2xl font-bold text-white mb-2">
                   The Old Way
                 </h3>
-                <p className="text-[#bfbfbf]">(Manual Chaos)</p>
+                <p className="text-red-300">(Manual Chaos)</p>
               </motion.div>
 
               <div className="space-y-4">
@@ -2128,6 +2106,7 @@ const Home = () => {
             </div>
           </div>
 
+          {/* CTA Button */}
           <motion.div
             initial={{ scale: 0.9, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
@@ -2141,7 +2120,7 @@ const Home = () => {
                   formSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-8 py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#d65df9]/50 transition-all duration-300 transform hover:scale-105"
+              className="px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-400/50 transition-all duration-300 transform hover:scale-105"
             >
               Get Started with AIX Automation
             </button>
@@ -2448,37 +2427,46 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-hidden"
+            className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
           >
+            {/* Click outside to close */}
+            <div
+              className="absolute inset-0"
+              onClick={() => setShowPopup(false)}
+            />
+
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-[#1c1c3c] rounded-xl w-full max-w-md relative border border-[#2b0d3a]"
-              style={{ boxShadow: `0 0 30px ${colors.deepPurple}` }}
+              exit={{ scale: 0.9, y: 20 }}
+              className="bg-[#1c1c3c] rounded-xl w-full max-w-md relative border border-[#2b0d3a] mx-4"
+              style={{
+                boxShadow: `0 0 30px ${colors.deepPurple}`,
+                maxHeight: "90vh",
+              }}
+              onClick={(e) => e.stopPropagation()}
             >
               <button
                 onClick={() => setShowPopup(false)}
-                className="absolute top-4 right-4 text-gray-400 hover:text-white"
+                className="absolute top-4 right-4 text-gray-400 hover:text-white z-10"
+                aria-label="Close popup"
               >
                 <FiX className="text-xl" />
               </button>
 
               <div className="p-6">
-                <h1 className="text-4xl font-extrabold text-center mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
+                <h1 className="text-3xl font-extrabold text-center mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
                   Get Free Demo
                 </h1>
 
                 <div className="overflow-hidden">
                   <iframe
                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
-                    style={{
-                      width: "100%",
-                      height: "550px", // Reduced height
-                      border: "none",
-                      borderRadius: "8px",
-                    }}
+                    className="w-full h-[550px] border-none rounded-lg"
                     id="inline-689b14dc9521c"
                     title="MasteraiX Form"
+                    allow="geolocation; microphone; camera"
+                    loading="lazy"
                   />
                 </div>
               </div>
