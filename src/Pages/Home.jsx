@@ -2155,7 +2155,7 @@ const Home = () => {
         className="py-16"
         style={{ backgroundColor: colors.darkBlue }}
       >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -2270,7 +2270,7 @@ const Home = () => {
                   title="MasteraiX 95875lpkjh,numgkhnvum"
                 />
 
-                <div className="mt-4 flex items-center text-sm text-gray-400">
+                <div className="mt-4  flex items-center text-sm text-gray-400">
                   <FiLock className="mr-2" />
                   <span>Your data is 100% secure - We hate spam too</span>
                 </div>
@@ -2448,12 +2448,12 @@ const Home = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4"
+            className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 overflow-hidden"
           >
             <motion.div
               initial={{ scale: 0.9, y: 20 }}
               animate={{ scale: 1, y: 0 }}
-              className="bg-[#1c1c3c] rounded-xl w-full max-w-3xl relative border border-[#2b0d3a]"
+              className="bg-[#1c1c3c] rounded-xl w-full max-w-md relative border border-[#2b0d3a]"
               style={{ boxShadow: `0 0 30px ${colors.deepPurple}` }}
             >
               <button
@@ -2463,20 +2463,21 @@ const Home = () => {
                 <FiX className="text-xl" />
               </button>
 
-              <div className="p-6 md:p-8">
-                <div className="mb-6">
+              <div className="p-6">
+                <h1 className="text-4xl font-extrabold text-center mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
+                  Get Free Demo
+                </h1>
+
+                <div className="overflow-hidden">
                   <iframe
                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
                     style={{
                       width: "100%",
-                      height: "500px",
+                      height: "550px", // Reduced height
                       border: "none",
                       borderRadius: "8px",
                     }}
                     id="inline-689b14dc9521c"
-                    data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
-                    data-layout-iframe-id="inline-689b14dc9521c"
-                    data-form-id="689b14dc9521c"
                     title="MasteraiX Form"
                   />
                 </div>
