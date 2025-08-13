@@ -431,6 +431,116 @@ const Home = () => {
     secondaryText: "#bfbfbf",
   };
 
+  // Comparison section
+
+  const smartWayFeatures = [
+    {
+      title: "Lead Capture",
+      description:
+        "Auto-sync leads from WA/ads/website → tagged in CRM. Zero leaks with 24/7 AI chatbots.",
+    },
+    {
+      title: "Follow-Ups",
+      description:
+        'Personalized drip campaigns (e.g., "Hey [Name], saw you checked out [Product]!"). 4x more replies with AI-timed messages.',
+    },
+    {
+      title: "Scaling",
+      description:
+        "1-person team manages 10,000+ leads. Ad budgets cut by 50% (targets hot leads only).",
+    },
+    {
+      title: "Closing Sales",
+      description:
+        "Auto-send brochures/contracts after interest detected. 20%+ conversion rate with LMS/calendar integrations.",
+    },
+  ];
+
+  const oldWayFeatures = [
+    {
+      title: "Lead Capture",
+      description:
+        "Scattered leads across WhatsApp, DMs, emails—no central tracking. 80% lost due to missed follow-ups.",
+    },
+    {
+      title: "Follow-Ups",
+      description:
+        "Copy-pasting the same messages like a robot. Clients feel spammed → block/ignore you.",
+    },
+    {
+      title: "Scaling",
+      description:
+        "Hiring cheap VA teams = errors & delays. $10,000+/month wasted on ads with no CRM sync.",
+    },
+    {
+      title: "Closing Sales",
+      description:
+        'Begging for replies with "Hi, interested?" texts. 3% conversion rate (industry average).',
+    },
+  ];
+
+  // Comparison section Featurescard
+  const FeatureCard = ({ title, description, isSmartWay, index }) => {
+    return (
+      <motion.div
+        // initial={{ opacity: 0, y: 0 }}
+        // animate={{ opacity: 1, y: 1 }}
+        // transition={{ duration: 0 }}
+        className={`p-6 rounded-xl ${
+          isSmartWay
+            ? "bg-gradient-to-br from-[#2b0d3a] to-[#1c1c3c] border border-[#b94dff]"
+            : "bg-[#0a0a23] border border-[#a8a8a8]"
+        } shadow-lg`}
+      >
+        <div className="flex items-start gap-3">
+          <div
+            className={`p-1 rounded-full ${
+              isSmartWay ? "bg-[#6a0dad]" : "bg-[#a8a8a8]"
+            }`}
+          >
+            {isSmartWay ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-5 w-5 text-white"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                  clipRule="evenodd"
+                />
+              </svg>
+            )}
+          </div>
+          <div>
+            <h3
+              className={`text-lg font-bold ${
+                isSmartWay ? "text-[#c684ff]" : "text-[#a8a8a8]"
+              }`}
+            >
+              {title}
+            </h3>
+            <p className="text-[#bfbfbf] mt-1">{description}</p>
+          </div>
+        </div>
+      </motion.div>
+    );
+  };
+
   // Hero section animation variants
   const heroVariants = {
     hidden: { opacity: 0, y: 20 },
@@ -1692,6 +1802,100 @@ const Home = () => {
                 </Button>
               </motion.div>
             </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Comparison section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[#0a0a23]">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-3xl sm:text-4xl font-bold text-[#ffffff] mb-4">
+              The <span className="text-[#b94dff]">Smart Way</span> vs The{" "}
+              <span className="text-[#a8a8a8]">Old Way</span>
+            </h2>
+            <p className="text-[#bfbfbf] max-w-2xl mx-auto">
+              Transform your lead management with AI-powered automation that
+              works 24/7 while you sleep
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div>
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 p-4 bg-[#2b0d3a] rounded-lg border border-[#6a0dad]"
+              >
+                <h3 className="text-2xl font-bold text-[#ffffff] mb-2">
+                  The Smart Way
+                </h3>
+                <p className="text-[#bfbfbf]">(Master AIX Automation)</p>
+              </motion.div>
+
+              <div className="space-y-4">
+                {smartWayFeatures.map((feature, index) => (
+                  <FeatureCard
+                    key={index}
+                    title={feature.title}
+                    description={feature.description}
+                    isSmartWay={true}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <motion.div
+                initial={{ x: 20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 p-4 bg-[#0a0a23] rounded-lg border border-[#a8a8a8]"
+              >
+                <h3 className="text-2xl font-bold text-[#a8a8a8] mb-2">
+                  The Old Way
+                </h3>
+                <p className="text-[#bfbfbf]">(Manual Chaos)</p>
+              </motion.div>
+
+              <div className="space-y-4">
+                {oldWayFeatures.map((feature, index) => (
+                  <FeatureCard
+                    key={index}
+                    title={feature.title}
+                    description={feature.description}
+                    isSmartWay={false}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <motion.div
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="mt-12 text-center"
+          >
+            <button
+              onClick={() => {
+                const formSection = document.getElementById("contact");
+                if (formSection) {
+                  formSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+              className="px-8 py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full hover:shadow-lg hover:shadow-[#d65df9]/50 transition-all duration-300 transform hover:scale-105"
+            >
+              Get Started with AIX Automation
+            </button>
           </motion.div>
         </div>
       </section>
