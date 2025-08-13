@@ -1103,7 +1103,7 @@ const Home = () => {
 
               {/* Floating AI robot animation */}
               <motion.div
-                className="absolute -top-10 -right-10"
+                className="relative top-10 right-10"
                 animate={{
                   y: [0, -20, 0],
                   rotate: [0, 5, -5, 0],
