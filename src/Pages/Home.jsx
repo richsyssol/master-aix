@@ -2031,7 +2031,7 @@ const Home = () => {
             </p>
             <p className="text-base md:text-xl mb-3 md:mb-4 text-white">
               <span className="text-green-400 md:text-green-600">
-                3 LK + Messages
+                300000 + Messages
               </span>{" "}
               Automated Using AI on WhatsApp
             </p>
