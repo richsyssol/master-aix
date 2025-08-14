@@ -2194,7 +2194,7 @@ const Home = () => {
                   formSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="px-8 py-3 bg-gradient-to-r from-green-400 to-blue-500 text-white font-bold rounded-full hover:shadow-lg hover:shadow-green-400/50 transition-all duration-300 transform hover:scale-105"
+              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
             >
               Get Started with AIX Automation
             </button>
