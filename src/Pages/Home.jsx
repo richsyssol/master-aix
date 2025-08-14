@@ -743,33 +743,13 @@ const Home = () => {
         "Gym membership expires → AI texts: 'Renew now—free PT session! 🏋' + payment button.",
       hook: "Subscription tracking → retention offers",
     },
-    {
-      icon: <FiCheck className="text-white text-xl" />,
-      title: "OTP/Login Codes",
-      description:
-        "User requests 'Send OTP' → AI generates code → WhatsApps it securely.",
-      hook: "Secure authentication → instant delivery",
-    },
-    {
-      icon: <FiMapPin className="text-white text-xl" />,
-      title: "Local Deal Alerts",
-      description:
-        "Restaurant AI blasts 'Lunch buffet 50% off for you! 🍣' to nearby users.",
-      hook: "Geo-targeting → hyper-local promotions",
-    },
+
     {
       icon: <FiCoffee className="text-white text-xl" />,
       title: "Group Order Coordination",
       description:
         "Office orders food → AI collects votes → confirms order via WhatsApp group.",
       hook: "Collaborative decision → bulk ordering",
-    },
-    {
-      icon: <FiAlertOctagon className="text-white text-xl" />,
-      title: "Emergency Alerts",
-      description:
-        "School AI detects closure → mass WhatsApp: 'Snow day! Stay safe ❄️'.",
-      hook: "Critical notifications → instant broadcast",
     },
   ];
 
