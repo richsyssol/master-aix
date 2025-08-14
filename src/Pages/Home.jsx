@@ -985,11 +985,15 @@ const Home = () => {
           >
             <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               YOUR{" "}
-              <span style={{ color: colors.electricPurple }}>
-                24/7 Marketing
+              <span
+                className="transition-colors duration-300"
+                style={{ color: colors.electricPurple }}
+                onMouseEnter={(e) => (e.target.style.color = "#00ff00")} // Green on hover
+                onMouseLeave={(e) => (e.target.style.color = "#ff0000")} // Red normally
+              >
+                24/7 MARKETING & SALES
               </span>{" "}
-              & SALES <span style={{ color: colors.electricPurple }}>Team</span>{" "}
-              - Powered by AI
+              <span className="text-white">Team</span> - Powered by AI
             </h2>
           </motion.div>
 
