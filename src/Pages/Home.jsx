@@ -1707,7 +1707,7 @@ const Home = () => {
                         formSection.scrollIntoView({ behavior: "smooth" });
                       }
                     }}
-                    className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-sm md:text-base"
+                    className="px-4 py-2 md:px-6 md:py-3 bg-gradient-to-r from-red-600 to-red-500 hover:from-green-600 hover:to-green-500 text-white font-bold rounded-full text-sm md:text-base transition-colors duration-300"
                   >
                     Get {industries[activeIndustry].name} Automation
                   </motion.button>
@@ -1716,33 +1716,29 @@ const Home = () => {
             </div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            className="text-center mt-8 md:mt-16"
-          >
-            <h3 className="text-lg md:text-xl font-bold text-white mb-3 md:mb-4">
-              Ready to automate your industry workflow?
-            </h3>
-            <motion.button
-              whileHover={{
-                scale: 1.05,
-                boxShadow: "0 0 25px rgba(214, 93, 249, 0.6)",
-              }}
-              whileTap={{ scale: 0.98 }}
-              onClick={() => {
-                const formSection = document.getElementById("contact");
-                if (formSection) {
-                  formSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-              className="px-6 py-3 md:px-8 md:py-4 bg-gradient-to-r from-[#6a0dad] to-[#ff00ff] text-white font-bold rounded-full text-base md:text-lg"
-            >
-              Request Custom Demo
-            </motion.button>
-          </motion.div>
+          <div className="flex justify-center mt-8">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                type="primary"
+                size="large"
+                style={{
+                  backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                  border: "none",
+                  boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                  transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                }}
+                className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                onClick={() => {
+                  const formSection = document.getElementById("contact");
+                  if (formSection) {
+                    formSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                SkyRocket My Business <FiArrowRight className="inline ml-1" />
+              </Button>
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -2028,10 +2024,10 @@ const Home = () => {
             }}
           >
             <p className="text-base md:text-xl mb-3 md:mb-4 text-white">
-              <span className="font-bold">
+              {/* <span className="font-bold">
                 {businessesAutomated.toLocaleString()}+
-              </span>{" "}
-              Business Automated last year
+              </span>{" "} */}
+              1000+ Business Automated in last year
             </p>
             <p className="text-base md:text-xl mb-3 md:mb-4 text-white">
               <span className="text-green-400 md:text-green-600">
@@ -2043,13 +2039,13 @@ const Home = () => {
               Increase business by <span className="text-yellow-300">30%</span>{" "}
               in just <span className="text-yellow-300">30 days</span>
             </p>
-            <p className="text-sm md:text-base text-gray-300">
+            {/* <p className="text-sm md:text-base text-gray-300">
               Next onboarding slot opens in:{" "}
               <span className="font-bold ml-1 md:ml-2 text-white">
                 {timeLeft.hours}:{timeLeft.minutes.toString().padStart(2, "0")}:
                 {timeLeft.seconds.toString().padStart(2, "0")}
               </span>
-            </p>
+            </p> */}
           </motion.div>
         </div>
       </section>
