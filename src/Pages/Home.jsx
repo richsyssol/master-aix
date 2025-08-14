@@ -24,6 +24,13 @@ import {
   FiTarget,
   FiTrendingUp,
   FiZap,
+  FiHelpCircle,
+  FiPackage,
+  FiAlertTriangle,
+  FiCreditCard,
+  FiMapPin,
+  FiCoffee,
+  FiAlertOctagon,
 } from "react-icons/fi";
 import {
   FaWhatsapp,
@@ -657,6 +664,115 @@ const Home = () => {
     },
   };
 
+  // AI Automation Flow
+  const flows = [
+    {
+      icon: <FiZap className="text-white text-xl" />,
+      title: "Instant Lead Response",
+      description:
+        "Customer messages 'Interested in Product X' → AI replies in 5 secs with pricing/brochure.",
+      hook: "NLP detects intent → auto-sends relevant info",
+    },
+    {
+      icon: <FiShoppingCart className="text-white text-xl" />,
+      title: "Abandoned Cart Recovery",
+      description:
+        "User leaves cart → AI WhatsApp message: 'Complete your order! Here's 10% off 🎁' + checkout link.",
+      hook: "Behavioral trigger → personalized incentive",
+    },
+    {
+      icon: <FiHelpCircle className="text-white text-xl" />,
+      title: "24/7 FAQ Bot",
+      description:
+        "Customer asks 'Return policy?' → AI fetches answer → sends policy doc + return form.",
+      hook: "Knowledge base integration → instant resolution",
+    },
+    {
+      icon: <FiCalendar className="text-white text-xl" />,
+      title: "Appointment Booking",
+      description:
+        "Patient types 'Book dentist slot' → AI shows calendar → confirms via WhatsApp.",
+      hook: "Calendar sync → automated scheduling",
+    },
+    {
+      icon: <FiPackage className="text-white text-xl" />,
+      title: "Order Tracking",
+      description:
+        "Customer asks 'Where's my order?' → AI pulls logistics data → shares live tracking link.",
+      hook: "API integration → real-time updates",
+    },
+    {
+      icon: <FiAlertTriangle className="text-white text-xl" />,
+      title: "Flash Sale Alerts",
+      description:
+        "AI segments contacts → blasts 'VIP Sneaker Drop LIVE! Shop now 👟' with limited link.",
+      hook: "Audience segmentation → timed campaigns",
+    },
+    {
+      icon: <FiDollarSign className="text-white text-xl" />,
+      title: "Payment Reminders",
+      description:
+        "Invoice due → AI sends WhatsApp payment link → 'Clear dues in 1 tap 💰'.",
+      hook: "Payment system integration → automated collections",
+    },
+    {
+      icon: <FiMessageSquare className="text-white text-xl" />,
+      title: "Feedback Collection",
+      description:
+        "Post-purchase → AI asks for rating → auto-forwards complaints to support.",
+      hook: "Sentiment analysis → smart routing",
+    },
+    {
+      icon: <FiTrendingUp className="text-white text-xl" />,
+      title: "Upsell/Cross-Sell",
+      description:
+        "Buys laptop → AI suggests: 'Add warranty? 20% off today!' → payment link.",
+      hook: "Purchase history → personalized offers",
+    },
+    {
+      icon: <FiUsers className="text-white text-xl" />,
+      title: "Event RSVP",
+      description:
+        "'Join our webinar!' → AI registers replies → sends Zoom link 1hr before.",
+      hook: "Event management → automated follow-ups",
+    },
+    {
+      icon: <FiCreditCard className="text-white text-xl" />,
+      title: "Membership Renewal",
+      description:
+        "Gym membership expires → AI texts: 'Renew now—free PT session! 🏋' + payment button.",
+      hook: "Subscription tracking → retention offers",
+    },
+    {
+      icon: <FiCheck className="text-white text-xl" />,
+      title: "OTP/Login Codes",
+      description:
+        "User requests 'Send OTP' → AI generates code → WhatsApps it securely.",
+      hook: "Secure authentication → instant delivery",
+    },
+    {
+      icon: <FiMapPin className="text-white text-xl" />,
+      title: "Local Deal Alerts",
+      description:
+        "Restaurant AI blasts 'Lunch buffet 50% off for you! 🍣' to nearby users.",
+      hook: "Geo-targeting → hyper-local promotions",
+    },
+    {
+      icon: <FiCoffee className="text-white text-xl" />,
+      title: "Group Order Coordination",
+      description:
+        "Office orders food → AI collects votes → confirms order via WhatsApp group.",
+      hook: "Collaborative decision → bulk ordering",
+    },
+    {
+      icon: <FiAlertOctagon className="text-white text-xl" />,
+      title: "Emergency Alerts",
+      description:
+        "School AI detects closure → mass WhatsApp: 'Snow day! Stay safe ❄️'.",
+      hook: "Critical notifications → instant broadcast",
+    },
+  ];
+
   return (
     <div className="min-h-screen" style={{ backgroundColor: colors.darkBlue }}>
       {/* Navigation */}
@@ -817,8 +933,7 @@ const Home = () => {
                     }
                   }}
                 >
-                  SkyRocket Grow My Business{" "}
-                  <FiArrowRight className="inline ml-1" />
+                  SkyRocket My Business <FiArrowRight className="inline ml-1" />
                 </Button>
               </div>
             </motion.div>
@@ -879,74 +994,75 @@ const Home = () => {
           />
         ))}
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
-          {/* Centered Header Section */}
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10 text-center md:text-left">
+          {/* Header Section - Full Width */}
           <motion.div
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               YOUR 24/7 Marketing & SALES TEAM - Powered by AI
             </h2>
-
-            <motion.h1
-              className="text-4xl md:text-5xl font-bold text-white leading-tight mb-6"
-              variants={heroItemVariants}
-              style={{
-                textShadow: `
-      0 0 10px ${colors.glowEffect},
-      2px 2px 4px rgba(0, 0, 0, 0.8)
-    `,
-              }}
-            >
-              <span style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}>
-                Struggling to Convert Leads?{" "}
-              </span>
-              <motion.span
-                className="bg-clip-text text-transparent"
-                style={{
-                  background: `linear-gradient(90deg, ${colors.hotPink}, ${colors.neonViolet})`,
-                  WebkitBackgroundClip: "text",
-                  textShadow: `0 0 10px ${colors.glowEffect}`,
-                }}
-                animate={{
-                  backgroundPosition: ["0% 50%", "100% 50%"],
-                }}
-                transition={{
-                  duration: 5,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                }}
-              >
-                Our AI Closes Deals While You Sleep!
-              </motion.span>
-            </motion.h1>
-
-            <motion.p
-              className="mt-6 text-xl text-gray-300 max-w-3xl mx-auto"
-              variants={heroItemVariants}
-            >
-              MASTERaiX captures, nurtures, and converts leads across WhatsApp,
-              SMS & email - so you never lose another sale to follow-up fatigue
-            </motion.p>
           </motion.div>
 
-          {/* Content with Image */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+          {/* Two Column Layout - Stacked on mobile */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+            {/* Left Column - Text Content */}
             <motion.div
               variants={heroVariants}
               initial="hidden"
               animate="visible"
+              className="w-full md:w-1/2 flex flex-col items-center md:items-start"
             >
+              <motion.h1
+                className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 text-center md:text-left leading-tight"
+                variants={heroItemVariants}
+              >
+                <span
+                  className="block"
+                  style={{ textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)" }}
+                >
+                  Struggling to Convert Leads?
+                </span>
+                <motion.span
+                  className="block bg-clip-text text-transparent"
+                  style={{
+                    background: `linear-gradient(90deg, ${colors.hotPink}, ${colors.neonViolet})`,
+                    WebkitBackgroundClip: "text",
+                    textShadow: `0 0 10px ${colors.glowEffect}`,
+                  }}
+                  animate={{
+                    backgroundPosition: ["0% 50%", "100% 50%"],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    repeatType: "reverse",
+                  }}
+                >
+                  Our AI Closes Deals While You Sleep!
+                </motion.span>
+              </motion.h1>
+
+              <motion.p
+                className="text-lg md:text-xl text-gray-300 mb-8 text-center md:text-left max-w-md md:max-w-none"
+                variants={heroItemVariants}
+              >
+                MASTERaiX captures, nurtures, and converts leads across
+                WhatsApp, SMS & email - so you never lose another sale to
+                follow-up fatigue
+              </motion.p>
+
               <motion.div
-                className="mt-8 flex flex-col sm:flex-row gap-4"
+                className="flex flex-col sm:flex-row gap-4 mb-8 w-full justify-center md:justify-start"
                 variants={heroItemVariants}
               >
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto"
                 >
                   <Button
                     type="primary"
@@ -956,7 +1072,7 @@ const Home = () => {
                       border: "none",
                       boxShadow: `0 0 15px ${colors.glowEffect}`,
                     }}
-                    className="font-semibold h-10 md:h-14 text-base md:text-lg"
+                    className="font-semibold h-12 md:h-14 text-base md:text-lg w-full"
                     onClick={() => {
                       const formSection = document.getElementById("contact");
                       if (formSection) {
@@ -964,7 +1080,7 @@ const Home = () => {
                       }
                     }}
                   >
-                    Get Your FREE Lead Recovery Audit{" "}
+                    SkyRocket My Business
                     <FiArrowRight className="inline ml-1 md:ml-2" />
                   </Button>
                 </motion.div>
@@ -972,10 +1088,11 @@ const Home = () => {
                 <motion.div
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
+                  className="w-full sm:w-auto"
                 >
                   <Button
                     size="large"
-                    className="h-14 text-lg flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-white border-opacity-30"
+                    className="h-12 md:h-14 text-base md:text-lg flex items-center justify-center bg-white bg-opacity-10 hover:bg-opacity-20 text-white border-white border-opacity-30 w-full"
                     onClick={() => {
                       const formSection = document.getElementById("contact");
                       if (formSection) {
@@ -990,25 +1107,21 @@ const Home = () => {
               </motion.div>
 
               <motion.div
-                className="mt-8 flex flex-wrap gap-4 items-center"
+                className="flex flex-col gap-3 mb-8 items-center md:items-start w-full"
                 variants={heroItemVariants}
               >
                 <div className="flex items-center text-gray-300">
-                  <FiCheck className="text-green-300 mr-1" />
-                  <span className="text-sm">
-                    Officially Meta-Approved WhatsApp API Partner
-                  </span>
+                  <FiCheck className="text-green-300 mr-2 text-xl" />
+                  <span>Officially Meta-Approved WhatsApp API Partner</span>
                 </div>
                 <div className="flex items-center text-gray-300">
-                  <FiCheck className="text-green-300 mr-1" />
-                  <span className="text-sm">
-                    Trusted by 1,000+ Indian Businesses
-                  </span>
+                  <FiCheck className="text-green-300 mr-2 text-xl" />
+                  <span>Trusted by 1,000+ Indian Businesses</span>
                 </div>
               </motion.div>
 
               <motion.div
-                className="mt-4 p-3 rounded-lg inline-block"
+                className="p-3 rounded-lg text-center md:text-left"
                 style={{
                   backgroundColor: "rgba(107, 33, 168, 0.3)",
                   backdropFilter: "blur(5px)",
@@ -1021,17 +1134,19 @@ const Home = () => {
               </motion.div>
             </motion.div>
 
+            {/* Right Column - Image with Notification */}
             <motion.div
-              initial={{ opacity: 0, x: 50 }}
+              initial={{ opacity: 0, x: 0, y: 20 }}
               animate={{
                 opacity: 1,
                 x: 0,
+                y: 0,
                 transition: { duration: 0.8, delay: 0.2 },
               }}
-              className="relative"
+              className="relative w-full md:w-1/2 mt-8 md:mt-0"
             >
               <div
-                className="rounded-2xl p-1 shadow-xl overflow-hidden"
+                className="rounded-2xl p-1 shadow-xl overflow-hidden mx-auto max-w-md md:max-w-none"
                 style={{
                   backgroundColor: colors.neonViolet,
                   boxShadow: `0 0 30px ${colors.glowEffect}`,
@@ -1043,7 +1158,6 @@ const Home = () => {
                     alt="Dashboard preview"
                     className="w-full h-auto"
                   />
-                  {/* Animated overlay */}
                   <motion.div
                     className="absolute inset-0"
                     style={{
@@ -1072,77 +1186,60 @@ const Home = () => {
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-                className="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-lg border border-gray-200"
+                className="absolute -bottom-6 -left-2 md:-left-6 bg-white p-3 md:p-4 rounded-xl shadow-lg border border-gray-200"
                 style={{
                   boxShadow: `0 0 15px ${colors.glowEffect}`,
                 }}
               >
                 <div className="flex items-center">
                   <div
-                    className="p-2 rounded-full mr-3"
+                    className="p-2 rounded-full mr-2 md:mr-3"
                     style={{
                       backgroundColor: `${colors.neonViolet}20`,
                       boxShadow: `0 0 10px ${colors.neonViolet}`,
                     }}
                   >
-                    <FiMessageSquare style={{ color: colors.neonViolet }} />
+                    <FiMessageSquare
+                      className="text-sm md:text-base"
+                      style={{ color: colors.neonViolet }}
+                    />
                   </div>
                   <div>
                     <p
-                      className="font-semibold"
+                      className="font-semibold text-sm md:text-base"
                       style={{ color: colors.darkBlue }}
                     >
                       New lead captured!
                     </p>
-                    <p className="text-sm" style={{ color: colors.softGray }}>
+                    <p
+                      className="text-xs md:text-sm"
+                      style={{ color: colors.softGray }}
+                    >
                       Just now
                     </p>
                   </div>
                 </div>
               </motion.div>
-
-              {/* Floating AI robot animation */}
-              {/* <motion.div
-                className="relative  left-50 right-10"
-                animate={{
-                  y: [0, -20, 0],
-                  rotate: [0, 5, -5, 0],
-                }}
-                transition={{
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-              >
-                <div className="relative w-24 h-24">
-                  <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-md"></div>
-                  <div
-                    className="relative w-24 h-24 flex items-center justify-center rounded-full"
-                    style={{
-                      background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
-                      boxShadow: `0 0 20px ${colors.glowEffect}`,
-                    }}
-                  >
-                    <span className="text-white text-2xl">🤖</span>
-                  </div>
-                </div>
-              </motion.div> */}
             </motion.div>
           </div>
 
-          {/* Common Button */}
-          <div className="flex justify-center mt-8">
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+          {/* Full Width CTA at Bottom */}
+          <div className="flex justify-center mt-12 md:mt-16">
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="w-full max-w-md md:max-w-none"
+            >
               <Button
                 type="primary"
                 size="large"
                 style={{
-                  backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                  backgroundColor: "#ff0000",
                   border: "none",
                   boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
-                  transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                  transition: "background-color 0.3s ease",
                 }}
-                className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                className="font-semibold hover:!bg-green-500 w-full md:w-auto"
                 onClick={() => {
                   const formSection = document.getElementById("contact");
                   if (formSection) {
@@ -1150,7 +1247,7 @@ const Home = () => {
                   }
                 }}
               >
-                SkyRocket Grow My Business{" "}
+                SkyRocket My Business
                 <FiArrowRight className="inline ml-1" />
               </Button>
             </motion.div>
@@ -1332,8 +1429,7 @@ const Home = () => {
                   }
                 }}
               >
-                SkyRocket Grow My Business{" "}
-                <FiArrowRight className="inline ml-1" />
+                SkyRocket My Business <FiArrowRight className="inline ml-1" />
               </Button>
             </motion.div>
           </div>
@@ -1483,8 +1579,7 @@ const Home = () => {
                   }
                 }}
               >
-                SkyRocket Grow My Business{" "}
-                <FiArrowRight className="inline ml-1" />
+                SkyRocket My Business <FiArrowRight className="inline ml-1" />
               </Button>
             </motion.div>
           </div>
@@ -1828,7 +1923,7 @@ const Home = () => {
                       }
                     }}
                   >
-                    SkyRocket Grow My Business{" "}
+                    SkyRocket My Business{" "}
                     <FiArrowRight className="inline ml-1" />
                   </Button>
                 </motion.div>
@@ -2020,8 +2115,7 @@ const Home = () => {
                     }
                   }}
                 >
-                  SkyRocket Grow My Business{" "}
-                  <FiArrowRight className="inline ml-1" />
+                  SkyRocket My Business <FiArrowRight className="inline ml-1" />
                 </Button>
               </motion.div>
             </div>
@@ -2051,33 +2145,6 @@ const Home = () => {
 
           {/* Comparison Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {/* Smart Way Column */}
-            <div>
-              <motion.div
-                initial={{ x: -20, opacity: 0 }}
-                animate={{ x: 0, opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="mb-6 p-4 bg-green-900 rounded-lg border border-green-400"
-              >
-                <h3 className="text-2xl font-bold text-white mb-2">
-                  The Smart Way
-                </h3>
-                <p className="text-green-300">(Master AIX Automation)</p>
-              </motion.div>
-
-              <div className="space-y-4">
-                {smartWayFeatures.map((feature, index) => (
-                  <FeatureCard
-                    key={index}
-                    title={feature.title}
-                    description={feature.description}
-                    isSmartWay={true}
-                    index={index}
-                  />
-                ))}
-              </div>
-            </div>
-
             {/* Old Way Column */}
             <div>
               <motion.div
@@ -2104,6 +2171,33 @@ const Home = () => {
                 ))}
               </div>
             </div>
+
+            {/* Smart Way Column */}
+            <div>
+              <motion.div
+                initial={{ x: -20, opacity: 0 }}
+                animate={{ x: 0, opacity: 1 }}
+                transition={{ duration: 0.5 }}
+                className="mb-6 p-4 bg-green-900 rounded-lg border border-green-400"
+              >
+                <h3 className="text-2xl font-bold text-white mb-2">
+                  The Smart Way
+                </h3>
+                <p className="text-green-300">(Master AIX Automation)</p>
+              </motion.div>
+
+              <div className="space-y-4">
+                {smartWayFeatures.map((feature, index) => (
+                  <FeatureCard
+                    key={index}
+                    title={feature.title}
+                    description={feature.description}
+                    isSmartWay={true}
+                    index={index}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           {/* CTA Button */}
@@ -2125,6 +2219,83 @@ const Home = () => {
               Get Started with AIX Automation
             </button>
           </motion.div>
+        </div>
+      </section>
+
+      {/* AI Conversation Flow */}
+
+      <section className="relative bg-gray-900 py-16 md:py-24 overflow-hidden">
+        {/* Background gradient */}
+        <div className="absolute inset-0 opacity-20">
+          <div className="absolute inset-0 bg-gradient-to-br from-purple-900 to-pink-900"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-pink-400">
+                AI-Powered Conversion Flows
+              </span>{" "}
+              That Work 24/7
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              15 automated sequences that capture, nurture, and convert leads
+              while you sleep
+            </p>
+          </div>
+
+          {/* Flows Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {flows.map((flow, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.05 }}
+                viewport={{ once: true }}
+                className="bg-gray-800 bg-opacity-50 rounded-xl p-6 border border-gray-700 hover:border-purple-500 transition-all hover:shadow-lg hover:shadow-purple-500/20"
+              >
+                <div className="flex items-start mb-4">
+                  <div className="bg-gradient-to-br from-purple-600 to-pink-600 p-3 rounded-lg mr-4">
+                    {flow.icon}
+                  </div>
+                  <h3 className="text-xl font-bold text-white">{flow.title}</h3>
+                </div>
+                <p className="text-gray-300 mb-4">
+                  <span className="font-semibold text-purple-300">Flow:</span>{" "}
+                  {flow.description}
+                </p>
+                <div className="bg-black bg-opacity-30 rounded-lg p-3 border border-gray-700">
+                  <p className="text-sm text-purple-200 font-mono">
+                    <span className="font-bold">Automation Logic:</span>{" "}
+                    {flow.hook}
+                  </p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* CTA Section */}
+          <div className="text-center mt-16">
+            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
+              Ready to automate your sales funnel?
+            </h3>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+              onClick={() => {
+                const formSection = document.getElementById("contact");
+                if (formSection) {
+                  formSection.scrollIntoView({ behavior: "smooth" });
+                }
+              }}
+            >
+              SkyRocket My Business
+              <FiArrowRight className="inline ml-2" />
+            </motion.button>
+          </div>
         </div>
       </section>
 
