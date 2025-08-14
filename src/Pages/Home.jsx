@@ -49,6 +49,7 @@ import {
   FaBolt,
   FaFilter,
   FaUserFriends,
+  FaCheck,
 } from "react-icons/fa";
 import {
   Button,
@@ -982,8 +983,13 @@ const Home = () => {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
-              YOUR 24/7 Marketing & SALES TEAM - Powered by AI
+            <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+              YOUR{" "}
+              <span style={{ color: colors.electricPurple }}>
+                24/7 Marketing
+              </span>{" "}
+              & SALES <span style={{ color: colors.electricPurple }}>Team</span>{" "}
+              - Powered by AI
             </h2>
           </motion.div>
 
@@ -1752,56 +1758,82 @@ const Home = () => {
           </motion.h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            {/* Left: Images */}
+            {/* Left: Content replacing images */}
             <motion.div
-              className="flex justify-center relative"
+              className="flex flex-col justify-center p-6 md:p-8 rounded-xl"
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
+              style={{
+                background: `linear-gradient(135deg, ${colors.deepPurple} 0%, ${colors.navy} 100%)`,
+                border: `1px solid ${colors.electricPurple}`,
+              }}
             >
-              {/* Laptop Image with glow effect */}
-              <div className="relative">
-                <img
-                  src="/images/laptop.png"
-                  alt="Masteraix Dashboard"
-                  className="w-full max-w-md rounded-lg shadow-lg z-10 relative"
-                />
-                <div
-                  className="absolute inset-0 rounded-lg z-0 opacity-70"
-                  style={{
-                    background: `radial-gradient(circle at center, ${colors.glowEffect} 0%, transparent 70%)`,
-                    filter: "blur(20px)",
-                    top: "20%",
-                    left: "20%",
-                    right: "20%",
-                    bottom: "20%",
-                  }}
-                />
-              </div>
+              <h3
+                className="text-2xl md:text-3xl font-bold mb-4"
+                style={{ color: colors.white }}
+              >
+                Close Deals Faster — With Zero Follow-Up Stress
+              </h3>
 
-              {/* Phone Image with glow */}
-              <div className="absolute -right-10 bottom-0 z-20">
-                <img
-                  src="/images/phone.png"
-                  alt="Masteraix Mobile"
-                  className="w-40 md:w-48 rounded-xl shadow-lg"
-                />
-                <div
-                  className="absolute inset-0 rounded-xl z-0 opacity-50"
-                  style={{
-                    background: `radial-gradient(circle at center, ${colors.neonViolet} 0%, transparent 70%)`,
-                    filter: "blur(15px)",
-                    top: "10%",
-                    left: "10%",
-                    right: "10%",
-                    bottom: "10%",
-                  }}
-                />
+              <p
+                className="text-lg mb-6"
+                style={{ color: colors.secondaryText }}
+              >
+                Your team never misses a follow-up, automated workflows handle
+                it all.
+              </p>
+
+              <ul className="space-y-4 mb-6">
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaCheck
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>Smart messages</strong> go out based on each lead's
+                    stage
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaCheck
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>Bump-ups</strong> remind silent leads to respond
+                  </span>
+                </motion.li>
+                <motion.li className="flex items-start" whileHover={{ x: 5 }}>
+                  <FaCheck
+                    className="mt-1 mr-3 text-lg"
+                    style={{ color: colors.hotPink }}
+                  />
+                  <span style={{ color: colors.white }}>
+                    <strong>All replies tracked</strong> — your team steps in
+                    only when needed
+                  </span>
+                </motion.li>
+              </ul>
+
+              <div className="p-4 rounded-lg bg-black bg-opacity-30 border border-purple-900">
+                <p
+                  className="text-sm font-medium mb-2"
+                  style={{ color: colors.glowEffect }}
+                >
+                  THE RESULT
+                </p>
+                <p
+                  className="font-semibold text-lg"
+                  style={{ color: colors.white }}
+                >
+                  More replies, faster decisions, and less chasing.
+                </p>
               </div>
             </motion.div>
 
-            {/* Right: Text */}
+            {/* Right: Text (unchanged) */}
             <motion.div
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -1880,8 +1912,7 @@ const Home = () => {
               </motion.div>
 
               {/* CTA Button */}
-              {/* Common Button */}
-              <div className="flex justify-center mt-8">
+              <div className="flex justify-center md:justify-start mt-8">
                 <motion.div
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -1890,12 +1921,12 @@ const Home = () => {
                     type="primary"
                     size="large"
                     style={{
-                      backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                      backgroundColor: "#ff0000",
                       border: "none",
                       boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
-                      transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                      transition: "background-color 0.3s ease",
                     }}
-                    className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                    className="font-semibold hover:!bg-green-500"
                     onClick={() => {
                       const formSection = document.getElementById("contact");
                       if (formSection) {
