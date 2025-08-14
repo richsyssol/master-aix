@@ -14,7 +14,10 @@ import logo13 from "../assets/Logo/reliance.png";
 import logo14 from "../assets/Logo/glanmark.png";
 import logo15 from "../assets/Logo/tork.png";
 
+import HeroImg from "../assets/HeroImage/MasterAIX.jpg";
+
 export {
+  HeroImg,
   logo1,
   logo2,
   logo3,

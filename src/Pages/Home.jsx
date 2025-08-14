@@ -65,6 +65,7 @@ import {
 import AIRobotAnimation from "../Componants/AIRobotAnimation.jsx/AIRobotAnimation";
 import ScrollToTop from "../Componants/ScrollToTop/ScrollToTop";
 import {
+  HeroImg,
   logo1,
   logo10,
   logo11,
@@ -985,15 +986,10 @@ const Home = () => {
           >
             <h2 className="text-4xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
               YOUR{" "}
-              <span
-                className="transition-colors duration-300"
-                style={{ color: colors.electricPurple }}
-                onMouseEnter={(e) => (e.target.style.color = "#00ff00")} // Green on hover
-                onMouseLeave={(e) => (e.target.style.color = "#ff0000")} // Red normally
-              >
+              <span className="text-red-500 hover:text-green-500 transition-colors duration-300">
                 24/7 MARKETING & SALES
               </span>{" "}
-              <span className="text-white">Team</span> - Powered by AI
+              <span className="text-white">TEAM</span> - Powered by AI
             </h2>
           </motion.div>
 
@@ -1070,7 +1066,7 @@ const Home = () => {
                       }
                     }}
                   >
-                    SkyRocket My Business
+                    Get Your FREE Lead Recovery Audit
                     <FiArrowRight className="inline ml-1 md:ml-2" />
                   </Button>
                 </motion.div>
@@ -1124,123 +1120,130 @@ const Home = () => {
               </motion.div>
             </motion.div>
 
-            {/* Right Column - Image with Notification */}
-            <motion.div
-              initial={{ opacity: 0, x: 0, y: 20 }}
-              animate={{
-                opacity: 1,
-                x: 0,
-                y: 0,
-                transition: { duration: 0.8, delay: 0.2 },
-              }}
-              className="relative w-full md:w-1/2 mt-8 md:mt-0"
-            >
-              <div
-                className="rounded-2xl p-1 shadow-xl overflow-hidden mx-auto max-w-md md:max-w-none"
-                style={{
-                  backgroundColor: colors.neonViolet,
-                  boxShadow: `0 0 30px ${colors.glowEffect}`,
-                }}
-              >
-                <div className="bg-white rounded-xl overflow-hidden relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80"
-                    alt="Dashboard preview"
-                    className="w-full h-auto"
-                  />
-                  <motion.div
-                    className="absolute inset-0"
-                    style={{
-                      background: `linear-gradient(45deg, transparent 48%, ${colors.glowEffect} 50%, transparent 52%)`,
-                      backgroundSize: "300% 300%",
-                    }}
-                    animate={{
-                      backgroundPosition: ["0% 0%", "100% 100%"],
-                    }}
-                    transition={{
-                      duration: 4,
-                      repeat: Infinity,
-                      ease: "linear",
-                    }}
-                  />
-                </div>
-              </div>
-
+            {/* Right Column - Image with Notification and CTA */}
+            <div className="w-full md:w-1/2 mt-8 md:mt-0">
               <motion.div
+                initial={{ opacity: 0, x: 0, y: 20 }}
                 animate={{
-                  y: [0, -15, 0],
-                  rotate: [0, -5, 5, 0],
+                  opacity: 1,
+                  x: 0,
+                  y: 0,
+                  transition: { duration: 0.8, delay: 0.2 },
                 }}
-                transition={{
-                  duration: 6,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                }}
-                className="absolute -bottom-6 -left-2 md:-left-6 bg-white p-3 md:p-4 rounded-xl shadow-lg border border-gray-200"
-                style={{
-                  boxShadow: `0 0 15px ${colors.glowEffect}`,
-                }}
+                className="relative"
               >
-                <div className="flex items-center">
-                  <div
-                    className="p-2 rounded-full mr-2 md:mr-3"
-                    style={{
-                      backgroundColor: `${colors.neonViolet}20`,
-                      boxShadow: `0 0 10px ${colors.neonViolet}`,
-                    }}
-                  >
-                    <FiMessageSquare
-                      className="text-sm md:text-base"
-                      style={{ color: colors.neonViolet }}
+                <div
+                  className="rounded-2xl p-1 shadow-xl overflow-hidden mx-auto max-w-md md:max-w-none"
+                  style={{
+                    backgroundColor: colors.neonViolet,
+                    boxShadow: `0 0 30px ${colors.glowEffect}`,
+                  }}
+                >
+                  <div className="bg-white rounded-xl overflow-hidden relative">
+                    <img
+                      src={HeroImg}
+                      alt="Dashboard preview"
+                      className="w-full h-auto"
+                    />
+                    <motion.div
+                      className="absolute inset-0"
+                      style={{
+                        background: `linear-gradient(45deg, transparent 48%, ${colors.glowEffect} 50%, transparent 52%)`,
+                        backgroundSize: "300% 300%",
+                      }}
+                      animate={{
+                        backgroundPosition: ["0% 0%", "100% 100%"],
+                      }}
+                      transition={{
+                        duration: 4,
+                        repeat: Infinity,
+                        ease: "linear",
+                      }}
                     />
                   </div>
-                  <div>
-                    <p
-                      className="font-semibold text-sm md:text-base"
-                      style={{ color: colors.darkBlue }}
-                    >
-                      New lead captured!
-                    </p>
-                    <p
-                      className="text-xs md:text-sm"
-                      style={{ color: colors.softGray }}
-                    >
-                      Just now
-                    </p>
-                  </div>
                 </div>
-              </motion.div>
-            </motion.div>
-          </div>
 
-          {/* Full Width CTA at Bottom */}
-          <div className="flex justify-center mt-12 md:mt-16">
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="w-full max-w-md md:max-w-none"
-            >
-              <Button
-                type="primary"
-                size="large"
-                style={{
-                  backgroundColor: "#ff0000",
-                  border: "none",
-                  boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
-                  transition: "background-color 0.3s ease",
-                }}
-                className="font-semibold hover:!bg-green-500 w-full md:w-auto"
-                onClick={() => {
-                  const formSection = document.getElementById("contact");
-                  if (formSection) {
-                    formSection.scrollIntoView({ behavior: "smooth" });
-                  }
-                }}
+                <motion.div
+                  animate={{
+                    y: [0, -15, 0],
+                    rotate: [0, -5, 5, 0],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                  className="absolute -bottom-6 -left-2 md:-left-6 bg-white p-3 md:p-4 rounded-xl shadow-lg border border-gray-200"
+                  style={{
+                    boxShadow: `0 0 15px ${colors.glowEffect}`,
+                  }}
+                >
+                  <div className="flex items-center">
+                    <div
+                      className="p-2 rounded-full mr-2 md:mr-3"
+                      style={{
+                        backgroundColor: `${colors.neonViolet}20`,
+                        boxShadow: `0 0 10px ${colors.neonViolet}`,
+                      }}
+                    >
+                      <FiMessageSquare
+                        className="text-sm md:text-base"
+                        style={{ color: colors.neonViolet }}
+                      />
+                    </div>
+                    <div>
+                      <p
+                        className="font-semibold text-sm md:text-base"
+                        style={{ color: colors.darkBlue }}
+                      >
+                        New lead captured!
+                      </p>
+                      <p
+                        className="text-xs md:text-sm"
+                        style={{ color: colors.softGray }}
+                      >
+                        Just now
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
+              </motion.div>
+
+              {/* CTA Button Below Image */}
+              <motion.div
+                className="flex justify-center mt-12"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
               >
-                SkyRocket My Business
-                <FiArrowRight className="inline ml-1" />
-              </Button>
-            </motion.div>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="w-full max-w-md"
+                >
+                  <Button
+                    type="primary"
+                    size="large"
+                    style={{
+                      backgroundColor: "#ff0000",
+                      border: "none",
+                      boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                      transition: "background-color 0.3s ease",
+                    }}
+                    className="font-semibold hover:!bg-green-500 w-full"
+                    onClick={() => {
+                      const formSection = document.getElementById("contact");
+                      if (formSection) {
+                        formSection.scrollIntoView({ behavior: "smooth" });
+                      }
+                    }}
+                  >
+                    SkyRocket My Business
+                    <FiArrowRight className="inline ml-1" />
+                  </Button>
+                </motion.div>
+              </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -2229,7 +2232,7 @@ const Home = () => {
                   formSection.scrollIntoView({ behavior: "smooth" });
                 }
               }}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
+              className="bg-gradient-to-r from-red-600 to-pink-600 hover:from-green-600 hover:to-green-500 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-green-500/30 transition-all duration-300"
             >
               Get Started with AIX Automation
             </button>
@@ -2292,24 +2295,28 @@ const Home = () => {
           </div>
 
           {/* CTA Section */}
-          <div className="text-center mt-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-white mb-6">
-              Ready to automate your sales funnel?
-            </h3>
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold py-4 px-10 rounded-full hover:shadow-lg hover:shadow-purple-500/30 transition-all"
-              onClick={() => {
-                const formSection = document.getElementById("contact");
-                if (formSection) {
-                  formSection.scrollIntoView({ behavior: "smooth" });
-                }
-              }}
-            >
-              SkyRocket My Business
-              <FiArrowRight className="inline ml-2" />
-            </motion.button>
+          <div className="flex justify-center mt-8">
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Button
+                type="primary"
+                size="large"
+                style={{
+                  backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                  border: "none",
+                  boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
+                  transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                }}
+                className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                onClick={() => {
+                  const formSection = document.getElementById("contact");
+                  if (formSection) {
+                    formSection.scrollIntoView({ behavior: "smooth" });
+                  }
+                }}
+              >
+                SkyRocket My Business <FiArrowRight className="inline ml-1" />
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
