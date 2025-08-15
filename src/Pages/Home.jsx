@@ -148,6 +148,34 @@ const Home = () => {
     };
   }, []);
 
+  // form
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  // const colors = {
+  //   darkBlue: "#0a0a2a",
+  //   deepPurple: "#2b0d3a",
+  //   deepPurpleLight: "#3d1b4d",
+  //   neonViolet: "#9d4edd",
+  // };
+
+  // Handle iframe form submission
+  useEffect(() => {
+    const handleMessage = (event) => {
+      // Check if the message is from your form domain
+      if (
+        event.origin === "https://admin.masteraix.io" &&
+        event.data === "formSubmitted"
+      ) {
+        setIsSubmitted(true);
+        document
+          .getElementById("thank-you-message")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+    };
+
+    window.addEventListener("message", handleMessage);
+    return () => window.removeEventListener("message", handleMessage);
+  }, []);
+
   // Exit intent popup
   useEffect(() => {
     const handleMouseOut = (e) => {
@@ -436,6 +464,7 @@ const Home = () => {
     glowEffect: "#d65df9",
 
     // Text Colors
+
     primaryText: "#ffffff",
     secondaryText: "#bfbfbf",
   };
@@ -2051,20 +2080,26 @@ const Home = () => {
       </section>
 
       {/* Wins Section */}
-      <section id="result" className="py-16 bg-gray-50">
+      <section
+        id="result"
+        className="py-16"
+        style={{ backgroundColor: colors.darkBlue }}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <motion.h2
-              className="text-3xl md:text-4xl font-bold text-gray-900 mb-4"
+              className="text-3xl md:text-4xl font-bold mb-4"
+              style={{ color: colors.primaryText }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              Real Client Success Stories
+              Transformative Results from Clients
             </motion.h2>
             <motion.p
-              className="text-lg text-gray-600 max-w-3xl mx-auto"
+              className="text-lg max-w-3xl mx-auto"
+              style={{ color: colors.secondaryText }}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.2 }}
@@ -2078,7 +2113,11 @@ const Home = () => {
             {winsData.map((win, index) => (
               <motion.div
                 key={index}
-                className={`flex flex-col p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow ${win.bgColor}`}
+                className={`flex flex-col p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow`}
+                style={{
+                  backgroundColor: colors.navy,
+                  boxShadow: `0 4px 6px rgba(0, 0, 0, 0.1)`,
+                }}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -2086,15 +2125,22 @@ const Home = () => {
               >
                 <div className="flex items-center mb-4">
                   <div
-                    className={`flex items-center justify-center w-12 h-12 rounded-lg ${win.iconBg} text-white mr-4`}
+                    className={`flex items-center justify-center w-12 h-12 rounded-lg mr-4`}
+                    style={{
+                      backgroundColor: colors.electricPurple,
+                      color: colors.white,
+                    }}
                   >
                     {win.icon}
                   </div>
-                  <h3 className={`text-lg font-semibold ${win.textColor}`}>
+                  <h3
+                    className="text-lg font-semibold"
+                    style={{ color: colors.primaryText }}
+                  >
                     {win.text.split(" ")[0]} {win.text.split(" ")[1]}
                   </h3>
                 </div>
-                <p className="text-gray-700">{win.text}</p>
+                <p style={{ color: colors.secondaryText }}>{win.text}</p>
               </motion.div>
             ))}
           </div>
@@ -2106,7 +2152,6 @@ const Home = () => {
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
           >
-            {/* Common Button */}
             <div className="flex justify-center mt-8">
               <motion.div
                 whileHover={{ scale: 1.05 }}
@@ -2116,12 +2161,13 @@ const Home = () => {
                   type="primary"
                   size="large"
                   style={{
-                    backgroundColor: "#ff0000", // Use backgroundColor instead of background
+                    background: `linear-gradient(135deg, ${colors.buttonGradientStart}, ${colors.buttonGradientEnd})`,
                     border: "none",
-                    boxShadow: `0 0 10px rgba(255, 0, 0, 0.5)`,
-                    transition: "background-color 0.3s ease", // Transition specifically for backgroundColor
+                    boxShadow: `0 0 15px ${colors.glowEffect}`,
+                    color: colors.white,
+                    transition: "all 0.3s ease",
                   }}
-                  className="font-semibold hover:!bg-green-500" // Important modifier to override inline style
+                  className="font-semibold"
                   onClick={() => {
                     const formSection = document.getElementById("contact");
                     if (formSection) {
@@ -2318,143 +2364,214 @@ const Home = () => {
       </section>
 
       {/* Form Section */}
-      <section
-        id="contact"
-        className="py-16"
-        style={{ backgroundColor: colors.darkBlue }}
-      >
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 ">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="rounded-2xl shadow-sm overflow-hidden border border-[#2b0d3a]"
-          >
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div
-                className="p-8 md:p-12"
-                style={{
-                  background: `linear-gradient(135deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
-                  color: "white",
-                }}
-              >
-                <h2 className="text-2xl font-bold mb-4">
-                  Get Your Personalized Automation Plan
-                </h2>
-                <p className="mb-6 text-gray-300">
-                  Discover how many leads you're losing - FREE audit reveals:
-                </p>
-
-                <ul className="space-y-4">
-                  <li className="flex items-start">
-                    <div
-                      className="rounded-full p-1 mr-3 mt-1"
-                      style={{
-                        backgroundColor: `${colors.neonViolet}20`,
-                        boxShadow: `0 0 5px ${colors.neonViolet}`,
-                      }}
-                    >
-                      <FiCheck className="text-white text-sm" />
-                    </div>
-                    <span className="text-gray-300">
-                      Scale your business 10x
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <div
-                      className="rounded-full p-1 mr-3 mt-1"
-                      style={{
-                        backgroundColor: `${colors.neonViolet}20`,
-                        boxShadow: `0 0 5px ${colors.neonViolet}`,
-                      }}
-                    >
-                      <FiCheck className="text-white text-sm" />
-                    </div>
-                    <span className="text-gray-300">
-                      Your estimated revenue recovery potential
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <div
-                      className="rounded-full p-1 mr-3 mt-1"
-                      style={{
-                        backgroundColor: `${colors.neonViolet}20`,
-                        boxShadow: `0 0 5px ${colors.neonViolet}`,
-                      }}
-                    >
-                      <FiCheck className="text-white text-sm" />
-                    </div>
-                    <span className="text-gray-300">
-                      Custom automation strategy
-                    </span>
-                  </li>
-                  <li className="flex items-start">
-                    <div
-                      className="rounded-full p-1 mr-3 mt-1"
-                      style={{
-                        backgroundColor: `${colors.neonViolet}20`,
-                        boxShadow: `0 0 5px ${colors.neonViolet}`,
-                      }}
-                    >
-                      <FiCheck className="text-white text-sm" />
-                    </div>
-                    <span className="text-gray-300">
-                      Your Automated Marketing & sales manager
-                    </span>
-                  </li>
-                </ul>
-
+      {/* Contact Form Section */}
+      {!isSubmitted && (
+        <section
+          id="contact"
+          className="py-16"
+          style={{ backgroundColor: colors.darkBlue }}
+        >
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="rounded-2xl shadow-sm overflow-hidden border border-[#2b0d3a]"
+            >
+              <div className="grid grid-cols-1 md:grid-cols-2">
                 <div
-                  className="mt-8 p-4 rounded-lg"
+                  className="p-8 md:p-12"
                   style={{
-                    backgroundColor: `${colors.neonViolet}20`,
-                    backdropFilter: "blur(5px)",
-                    border: `1px solid ${colors.neonViolet}`,
+                    background: `linear-gradient(135deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
+                    color: "white",
                   }}
                 >
-                  <p className="text-sm text-white">
-                    <span className="font-semibold">⚠ Final Warning:</span>{" "}
-                    These is only for people who want to grow there business for
-                    real
+                  <h2 className="text-2xl font-bold mb-4">
+                    Get Your Personalized Automation Plan
+                  </h2>
+                  <p className="mb-6 text-gray-300">
+                    Discover how many leads you're losing - FREE audit reveals:
                   </p>
+
+                  <ul className="space-y-4">
+                    <li className="flex items-start">
+                      <div
+                        className="rounded-full p-1 mr-3 mt-1"
+                        style={{
+                          backgroundColor: `${colors.neonViolet}20`,
+                          boxShadow: `0 0 5px ${colors.neonViolet}`,
+                        }}
+                      >
+                        <FiCheck className="text-white text-sm" />
+                      </div>
+                      <span className="text-gray-300">
+                        Scale your business 10x
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <div
+                        className="rounded-full p-1 mr-3 mt-1"
+                        style={{
+                          backgroundColor: `${colors.neonViolet}20`,
+                          boxShadow: `0 0 5px ${colors.neonViolet}`,
+                        }}
+                      >
+                        <FiCheck className="text-white text-sm" />
+                      </div>
+                      <span className="text-gray-300">
+                        Your estimated revenue recovery potential
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <div
+                        className="rounded-full p-1 mr-3 mt-1"
+                        style={{
+                          backgroundColor: `${colors.neonViolet}20`,
+                          boxShadow: `0 0 5px ${colors.neonViolet}`,
+                        }}
+                      >
+                        <FiCheck className="text-white text-sm" />
+                      </div>
+                      <span className="text-gray-300">
+                        Custom automation strategy
+                      </span>
+                    </li>
+                    <li className="flex items-start">
+                      <div
+                        className="rounded-full p-1 mr-3 mt-1"
+                        style={{
+                          backgroundColor: `${colors.neonViolet}20`,
+                          boxShadow: `0 0 5px ${colors.neonViolet}`,
+                        }}
+                      >
+                        <FiCheck className="text-white text-sm" />
+                      </div>
+                      <span className="text-gray-300">
+                        Your Automated Marketing & sales manager
+                      </span>
+                    </li>
+                  </ul>
+
+                  <div
+                    className="mt-8 p-4 rounded-lg"
+                    style={{
+                      backgroundColor: `${colors.neonViolet}20`,
+                      backdropFilter: "blur(5px)",
+                      border: `1px solid ${colors.neonViolet}`,
+                    }}
+                  >
+                    <p className="text-sm text-white">
+                      <span className="font-semibold">⚠ Final Warning:</span>{" "}
+                      These is only for people who want to grow there business
+                      for real
+                    </p>
+                  </div>
+                </div>
+
+                <div className="p-8 md:p-12 bg-[#1c1c3c]">
+                  <iframe
+                    src="https://admin.masteraix.io/widget/form/689b14dc9521c"
+                    style={{
+                      width: "100%",
+                      height: "600px",
+                      border: "none",
+                      borderRadius: "3px",
+                    }}
+                    id="inline-689b14dc9521c"
+                    data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
+                    data-layout-iframe-id="inline-689b14dc9521c"
+                    data-form-id="689b14dc9521c"
+                    data-height="600"
+                    title="MasteraiX 95875lpkjh,numgkhnvum"
+                  />
+
+                  <div className="mt-4 flex items-center text-sm text-gray-400">
+                    <FiLock className="mr-2" />
+                    <span>Your data is 100% secure - We hate spam too</span>
+                  </div>
+
+                  <div className="mt-2 flex items-center text-sm text-gray-400">
+                    <FiClock className="mr-2" />
+                    <span className="font-bold">
+                      Experience business automation{" "}
+                      <span className="text-green-600">right now</span>
+                    </span>
+                  </div>
                 </div>
               </div>
+            </motion.div>
+          </div>
+        </section>
+      )}
 
-              <div className="p-8 md:p-12 bg-[#1c1c3c]">
-                <iframe
-                  src="https://admin.masteraix.io/widget/form/689b14dc9521c"
-                  style={{
-                    width: "100%",
-                    height: "600px",
-                    border: "none",
-                    borderRadius: "3px",
-                  }}
-                  id="inline-689b14dc9521c"
-                  data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
-                  data-layout-iframe-id="inline-689b14dc9521c"
-                  data-form-id="689b14dc9521c"
-                  data-height="600"
-                  title="MasteraiX 95875lpkjh,numgkhnvum"
-                />
-
-                <div className="mt-4  flex items-center text-sm text-gray-400">
-                  <FiLock className="mr-2" />
-                  <span>Your data is 100% secure - We hate spam too</span>
-                </div>
-
-                <div className="mt-2 flex items-center text-sm text-gray-400">
-                  <FiClock className="mr-2" />
-                  <span className=" font-bold">
-                    Experience business automation{" "}
-                    <span className="text-green-600">right now</span>
-                  </span>
-                </div>
-              </div>
+      {/* Thank You Message */}
+      {isSubmitted && (
+        <section
+          id="thank-you-message"
+          className="min-h-[60vh] flex items-center justify-center"
+          style={{ backgroundColor: colors.darkBlue }}
+        >
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center p-8 max-w-2xl mx-auto"
+          >
+            <div className="mb-6">
+              <motion.div
+                animate={{
+                  scale: [1, 1.1, 1],
+                  rotate: [0, 5, -5, 0],
+                }}
+                transition={{
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  duration: 2,
+                }}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-20 w-20 mx-auto text-green-400"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+              </motion.div>
             </div>
+
+            <h2 className="text-3xl font-bold mb-4 text-white">
+              Thank You For Your Submission!
+            </h2>
+
+            <p className="text-lg mb-8 text-gray-300">
+              We've received your information and our team will contact you
+              within 24 hours. Meanwhile, check your email for our welcome kit.
+            </p>
+
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg font-medium"
+              onClick={() => {
+                setIsSubmitted(false);
+                document
+                  .getElementById("contact")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+            >
+              Submit Another Response
+            </motion.button>
           </motion.div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* FAQ Section */}
       <section className="py-16" style={{ backgroundColor: colors.navy }}>
@@ -2632,6 +2749,8 @@ const Home = () => {
               style={{
                 boxShadow: `0 0 30px ${colors.deepPurple}`,
                 maxHeight: "90vh",
+                overflowY: "auto", // Added for mobile scrolling
+                WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -2643,19 +2762,24 @@ const Home = () => {
                 <FiX className="text-xl" />
               </button>
 
-              <div className="p-6">
-                <h1 className="text-3xl font-extrabold text-center mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
+              <div className="p-4 sm:p-6">
+                {" "}
+                {/* Reduced padding on mobile */}
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
                   Get Free Demo
                 </h1>
-
                 <div className="overflow-hidden">
                   <iframe
                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
-                    className="w-full h-[550px] border-none rounded-lg"
+                    className="w-full h-[400px] sm:h-[550px] border-none rounded-lg" // Reduced height on mobile
                     id="inline-689b14dc9521c"
                     title="MasteraiX Form"
                     allow="geolocation; microphone; camera"
                     loading="lazy"
+                    style={{
+                      minHeight: "400px", // Ensure minimum height
+                      WebkitOverflowScrolling: "touch", // For iOS
+                    }}
                   />
                 </div>
               </div>
