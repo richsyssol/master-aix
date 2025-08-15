@@ -2749,8 +2749,7 @@ const Home = () => {
               style={{
                 boxShadow: `0 0 30px ${colors.deepPurple}`,
                 maxHeight: "90vh",
-                overflowY: "auto", // Added for mobile scrolling
-                WebkitOverflowScrolling: "touch", // Smooth scrolling on iOS
+                overflow: "hidden", // Changed from overflowY: "auto"
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -2763,22 +2762,21 @@ const Home = () => {
               </button>
 
               <div className="p-4 sm:p-6">
-                {" "}
-                {/* Reduced padding on mobile */}
                 <h1 className="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
-                  Get Free Demo
+                  SkyRocket My Business
                 </h1>
                 <div className="overflow-hidden">
                   <iframe
                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
-                    className="w-full h-[400px] sm:h-[550px] border-none rounded-lg" // Reduced height on mobile
+                    className="w-full h-[550px] border-none rounded-lg" // Fixed height
                     id="inline-689b14dc9521c"
                     title="MasteraiX Form"
                     allow="geolocation; microphone; camera"
                     loading="lazy"
                     style={{
-                      minHeight: "400px", // Ensure minimum height
-                      WebkitOverflowScrolling: "touch", // For iOS
+                      minHeight: "550px",
+                      overflow: "hidden", // Hide scrollbar
+                      WebkitOverflowScrolling: "touch",
                     }}
                   />
                 </div>
