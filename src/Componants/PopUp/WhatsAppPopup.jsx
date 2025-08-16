@@ -10,6 +10,10 @@ function WhatsAppPopup() {
 
   // Color variables from your theme
   const colors = {
+    whatsappGreen: "#25D366",
+    whatsappGreenDark: "#128C7E",
+    whatsappGreenLight: "#DCF8C6",
+    whatsappTeal: "#075E54",
     deepPurple: "#2b0d3a",
     deepPurpleLight: "#6a0dad",
     electricPurple: "#b94dff",
@@ -20,9 +24,9 @@ function WhatsAppPopup() {
     offWhite: "#f5f5f5",
     softGray: "#a8a8a8",
     hotPink: "#ff4dd2",
-    buttonGradientStart: "#6a0dad",
-    buttonGradientEnd: "#ff00ff",
-    glowEffect: "#d65df9",
+    buttonGradientStart: "#25D366",
+    buttonGradientEnd: "#128C7E",
+    glowEffect: "#5ff474",
   };
 
   // Close popups when clicking outside
@@ -50,26 +54,26 @@ function WhatsAppPopup() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: 20 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="whatsapp-popup-container absolute bottom-full right-0 mb-4 w-72 sm:w-80 rounded-xl overflow-hidden border border-[#2b0d3a]"
+              className="whatsapp-popup-container absolute bottom-full right-0 mb-4 w-72 sm:w-80 rounded-xl overflow-hidden border border-[#075E54]"
               style={{
-                background: `linear-gradient(135deg, ${colors.darkBlue}, ${colors.navy})`,
+                background: `linear-gradient(135deg, ${colors.whatsappTeal}, ${colors.whatsappGreenDark})`,
                 boxShadow: `0 0 20px ${colors.glowEffect}`,
               }}
             >
               <div
                 className="flex items-center justify-between p-4"
                 style={{
-                  background: `linear-gradient(90deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
-                  borderBottom: `1px solid ${colors.neonViolet}`,
+                  background: `linear-gradient(90deg, ${colors.whatsappTeal}, ${colors.whatsappGreenDark})`,
+                  borderBottom: `1px solid ${colors.whatsappGreenLight}`,
                 }}
               >
                 <div className="flex items-center space-x-3">
                   <div className="relative w-10 h-10">
-                    <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-md"></div>
+                    <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 blur-md"></div>
                     <div
                       className="relative w-10 h-10 flex items-center justify-center rounded-full"
                       style={{
-                        background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+                        background: `radial-gradient(circle, ${colors.whatsappGreen}, ${colors.whatsappTeal})`,
                         boxShadow: `0 0 10px ${colors.glowEffect}`,
                       }}
                     >
@@ -106,11 +110,11 @@ function WhatsAppPopup() {
                       ease: "easeInOut",
                     }}
                   >
-                    <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-md"></div>
+                    <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 blur-md"></div>
                     <div
                       className="relative w-24 h-24 flex items-center justify-center rounded-full"
                       style={{
-                        background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+                        background: `radial-gradient(circle, ${colors.whatsappGreen}, ${colors.whatsappTeal})`,
                         boxShadow: `0 0 20px ${colors.glowEffect}`,
                       }}
                     >
@@ -140,9 +144,9 @@ function WhatsAppPopup() {
                   href="tel:+919595902006"
                   className="inline-flex items-center justify-center px-4 py-2 rounded-lg transition-colors w-full mb-3"
                   style={{
-                    background: `linear-gradient(135deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
+                    background: `linear-gradient(135deg, ${colors.whatsappTeal}, ${colors.whatsappGreenDark})`,
                     color: colors.white,
-                    boxShadow: `0 0 10px ${colors.deepPurple}`,
+                    boxShadow: `0 0 10px ${colors.whatsappTeal}`,
                   }}
                 >
                   <Phone className="mr-2" size={18} />
@@ -155,8 +159,8 @@ function WhatsAppPopup() {
                   }}
                   className="inline-flex items-center justify-center px-4 py-2 rounded-lg transition-colors w-full"
                   style={{
-                    background: `linear-gradient(135deg, ${colors.electricPurple}, ${colors.neonViolet})`,
-                    color: colors.white,
+                    background: `linear-gradient(135deg, ${colors.whatsappGreen}, ${colors.whatsappGreenLight})`,
+                    color: colors.whatsappTeal,
                     boxShadow: `0 0 10px ${colors.glowEffect}`,
                   }}
                 >
@@ -188,17 +192,17 @@ function WhatsAppPopup() {
             className="p-3 rounded-full shadow-lg transition-all relative"
             aria-label="WhatsApp support"
             style={{
-              background: `linear-gradient(135deg, ${colors.electricPurple}, ${colors.neonViolet})`,
+              background: `linear-gradient(135deg, ${colors.whatsappGreen}, ${colors.whatsappGreenDark})`,
               boxShadow: `0 0 15px ${colors.glowEffect}`,
             }}
           >
             <div className="absolute -top-2 -right-2">
               <div className="relative w-6 h-6">
-                <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-sm"></div>
+                <div className="absolute inset-0 rounded-full bg-[#25D366] opacity-20 blur-sm"></div>
                 <div
                   className="relative w-6 h-6 flex items-center justify-center rounded-full"
                   style={{
-                    background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+                    background: `radial-gradient(circle, ${colors.whatsappGreen}, ${colors.whatsappTeal})`,
                     boxShadow: `0 0 5px ${colors.glowEffect}`,
                   }}
                 >
@@ -234,7 +238,7 @@ function WhatsAppPopup() {
               style={{
                 boxShadow: `0 0 30px ${colors.deepPurple}`,
                 maxHeight: "90vh",
-                overflow: "hidden", // Changed from overflowY: "auto"
+                overflow: "hidden",
               }}
               onClick={(e) => e.stopPropagation()}
             >
@@ -254,16 +258,18 @@ function WhatsAppPopup() {
                 <div className="overflow-hidden">
                   <iframe
                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
-                    className="w-full h-[550px] border-none rounded-lg" // Fixed height
-                    id="inline-689b14dc9521c"
-                    title="MasteraiX Form"
-                    allow="geolocation; microphone; camera"
-                    loading="lazy"
                     style={{
-                      minHeight: "550px", // Ensure minimum height
-                      overflow: "hidden", // Hide scrollbar
-                      WebkitOverflowScrolling: "touch", // For iOS
+                      width: "100%",
+                      height: "600px",
+                      border: "none",
+                      borderRadius: "3px",
                     }}
+                    id="inline-689b14dc9521c"
+                    data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
+                    data-layout-iframe-id="inline-689b14dc9521c"
+                    data-form-id="689b14dc9521c"
+                    data-height="600"
+                    title="MasteraiX 95875lpkjh,numgkhnvum"
                   />
                 </div>
               </div>
@@ -276,3 +282,284 @@ function WhatsAppPopup() {
 }
 
 export default WhatsAppPopup;
+
+// import React, { useState, useEffect } from "react";
+// import { FaWhatsapp } from "react-icons/fa";
+// import { RxCross2 } from "react-icons/rx";
+// import { motion, AnimatePresence } from "framer-motion";
+// import { Phone, CalendarCheck } from "lucide-react";
+
+// function WhatsAppPopup() {
+//   const [showWhatsapp, setShowWhatsapp] = useState(false);
+//   const [showForm, setShowForm] = useState(false);
+
+//   // Color variables from your theme
+//   const colors = {
+//     deepPurple: "#2b0d3a",
+//     deepPurpleLight: "#6a0dad",
+//     electricPurple: "#b94dff",
+//     neonViolet: "#c684ff",
+//     darkBlue: "#0a0a23",
+//     navy: "#1c1c3c",
+//     white: "#ffffff",
+//     offWhite: "#f5f5f5",
+//     softGray: "#a8a8a8",
+//     hotPink: "#ff4dd2",
+//     buttonGradientStart: "#6a0dad",
+//     buttonGradientEnd: "#ff00ff",
+//     glowEffect: "#d65df9",
+//   };
+
+//   // Close popups when clicking outside
+//   useEffect(() => {
+//     const handleClickOutside = (e) => {
+//       if (showWhatsapp && !e.target.closest(".whatsapp-popup-container")) {
+//         setShowWhatsapp(false);
+//       }
+//       if (showForm && !e.target.closest(".form-popup-container")) {
+//         setShowForm(false);
+//       }
+//     };
+//     document.addEventListener("mousedown", handleClickOutside);
+//     return () => document.removeEventListener("mousedown", handleClickOutside);
+//   }, [showWhatsapp, showForm]);
+
+//   return (
+//     <>
+//       {/* WhatsApp Popup */}
+//       <div className="fixed bottom-8 right-8 z-50">
+//         <AnimatePresence>
+//           {showWhatsapp && (
+//             <motion.div
+//               initial={{ opacity: 0, y: 20 }}
+//               animate={{ opacity: 1, y: 0 }}
+//               exit={{ opacity: 0, y: 20 }}
+//               transition={{ type: "spring", stiffness: 300 }}
+//               className="whatsapp-popup-container absolute bottom-full right-0 mb-4 w-72 sm:w-80 rounded-xl overflow-hidden border border-[#2b0d3a]"
+//               style={{
+//                 background: `linear-gradient(135deg, ${colors.darkBlue}, ${colors.navy})`,
+//                 boxShadow: `0 0 20px ${colors.glowEffect}`,
+//               }}
+//             >
+//               <div
+//                 className="flex items-center justify-between p-4"
+//                 style={{
+//                   background: `linear-gradient(90deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
+//                   borderBottom: `1px solid ${colors.neonViolet}`,
+//                 }}
+//               >
+//                 <div className="flex items-center space-x-3">
+//                   <div className="relative w-10 h-10">
+//                     <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-md"></div>
+//                     <div
+//                       className="relative w-10 h-10 flex items-center justify-center rounded-full"
+//                       style={{
+//                         background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+//                         boxShadow: `0 0 10px ${colors.glowEffect}`,
+//                       }}
+//                     >
+//                       <FaWhatsapp className="text-xl text-white" />
+//                     </div>
+//                   </div>
+//                   <div className="text-white">
+//                     <h4 className="font-semibold">AI Support</h4>
+//                     <p className="text-xs" style={{ color: colors.softGray }}>
+//                       Hi! How can we help?
+//                     </p>
+//                   </div>
+//                 </div>
+//                 <button
+//                   onClick={() => setShowWhatsapp(false)}
+//                   className="text-gray-300 hover:text-white transition-colors"
+//                   aria-label="Close popup"
+//                 >
+//                   <RxCross2 className="text-xl" />
+//                 </button>
+//               </div>
+
+//               <div className="p-4 text-center">
+//                 <div className="flex justify-center mb-4">
+//                   <motion.div
+//                     className="relative w-24 h-24"
+//                     animate={{
+//                       y: [0, -10, 0],
+//                       rotate: [0, 5, -5, 0],
+//                     }}
+//                     transition={{
+//                       duration: 6,
+//                       repeat: Infinity,
+//                       ease: "easeInOut",
+//                     }}
+//                   >
+//                     <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-md"></div>
+//                     <div
+//                       className="relative w-24 h-24 flex items-center justify-center rounded-full"
+//                       style={{
+//                         background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+//                         boxShadow: `0 0 20px ${colors.glowEffect}`,
+//                       }}
+//                     >
+//                       <span className="text-white text-4xl">🤖</span>
+//                     </div>
+//                   </motion.div>
+//                 </div>
+
+//                 <p className="text-sm mb-4" style={{ color: colors.softGray }}>
+//                   Our AI assistant is ready to help you 24/7
+//                 </p>
+//                 <a
+//                   href="https://wa.me/919595902006?text=Hello%20there!"
+//                   target="_blank"
+//                   rel="noopener noreferrer"
+//                   className="inline-flex items-center justify-center px-4 py-2 rounded-lg transition-colors w-full mb-3"
+//                   style={{
+//                     background: `linear-gradient(135deg, ${colors.buttonGradientStart}, ${colors.buttonGradientEnd})`,
+//                     color: colors.white,
+//                     boxShadow: `0 0 10px ${colors.glowEffect}`,
+//                   }}
+//                 >
+//                   <FaWhatsapp className="mr-2" />
+//                   Chat with AI Assistant
+//                 </a>
+//                 <a
+//                   href="tel:+919595902006"
+//                   className="inline-flex items-center justify-center px-4 py-2 rounded-lg transition-colors w-full mb-3"
+//                   style={{
+//                     background: `linear-gradient(135deg, ${colors.deepPurple}, ${colors.deepPurpleLight})`,
+//                     color: colors.white,
+//                     boxShadow: `0 0 10px ${colors.deepPurple}`,
+//                   }}
+//                 >
+//                   <Phone className="mr-2" size={18} />
+//                   Connect with Team
+//                 </a>
+//                 <button
+//                   onClick={() => {
+//                     setShowWhatsapp(false);
+//                     setShowForm(true);
+//                   }}
+//                   className="inline-flex items-center justify-center px-4 py-2 rounded-lg transition-colors w-full"
+//                   style={{
+//                     background: `linear-gradient(135deg, ${colors.electricPurple}, ${colors.neonViolet})`,
+//                     color: colors.white,
+//                     boxShadow: `0 0 10px ${colors.glowEffect}`,
+//                   }}
+//                 >
+//                   <CalendarCheck className="mr-2" size={18} />
+//                   SkyRocket My Business
+//                 </button>
+//               </div>
+//             </motion.div>
+//           )}
+//         </AnimatePresence>
+
+//         {/* Floating WhatsApp Button */}
+//         <motion.div
+//           className="relative"
+//           animate={{
+//             y: [0, -15, 0],
+//             rotate: [0, -5, 5, 0],
+//           }}
+//           transition={{
+//             duration: 6,
+//             repeat: Infinity,
+//             ease: "easeInOut",
+//           }}
+//         >
+//           <motion.button
+//             whileHover={{ scale: 1.1 }}
+//             whileTap={{ scale: 0.9 }}
+//             onClick={() => setShowWhatsapp(!showWhatsapp)}
+//             className="p-3 rounded-full shadow-lg transition-all relative"
+//             aria-label="WhatsApp support"
+//             style={{
+//               background: `linear-gradient(135deg, ${colors.electricPurple}, ${colors.neonViolet})`,
+//               boxShadow: `0 0 15px ${colors.glowEffect}`,
+//             }}
+//           >
+//             <div className="absolute -top-2 -right-2">
+//               <div className="relative w-6 h-6">
+//                 <div className="absolute inset-0 rounded-full bg-[#b94dff] opacity-20 blur-sm"></div>
+//                 <div
+//                   className="relative w-6 h-6 flex items-center justify-center rounded-full"
+//                   style={{
+//                     background: `radial-gradient(circle, ${colors.neonViolet}, ${colors.deepPurple})`,
+//                     boxShadow: `0 0 5px ${colors.glowEffect}`,
+//                   }}
+//                 >
+//                   <span className="text-white text-xs">AI</span>
+//                 </div>
+//               </div>
+//             </div>
+//             <FaWhatsapp className="text-3xl text-white" />
+//           </motion.button>
+//         </motion.div>
+//       </div>
+
+//       {/* Consultation Form Popup */}
+//       <AnimatePresence>
+//         {showForm && (
+//           <motion.div
+//             initial={{ opacity: 0 }}
+//             animate={{ opacity: 1 }}
+//             exit={{ opacity: 0 }}
+//             className="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-center justify-center p-4"
+//           >
+//             {/* Click outside to close */}
+//             <div
+//               className="absolute inset-0"
+//               onClick={() => setShowForm(false)}
+//             />
+
+//             <motion.div
+//               initial={{ scale: 0.9, y: 20 }}
+//               animate={{ scale: 1, y: 0 }}
+//               exit={{ scale: 0.9, y: 20 }}
+//               className="form-popup-container bg-[#1c1c3c] rounded-xl w-full max-w-md relative border border-[#2b0d3a] mx-4 no-scrollbar"
+//               style={{
+//                 boxShadow: `0 0 30px ${colors.deepPurple}`,
+//                 maxHeight: "90vh",
+//                 overflow: "hidden", // Changed from overflowY: "auto"
+//               }}
+//               onClick={(e) => e.stopPropagation()}
+//             >
+//               <button
+//                 onClick={() => setShowForm(false)}
+//                 className="absolute top-4 right-4 text-gray-400 hover:text-white z-10"
+//                 aria-label="Close popup"
+//               >
+//                 <RxCross2 className="text-xl" />
+//               </button>
+
+//               <div className="p-4 sm:p-6">
+//                 <h1 className="text-2xl sm:text-3xl font-extrabold text-center mb-4 sm:mb-6 bg-gradient-to-r from-amber-200 via-amber-50 to-amber-100 bg-clip-text text-transparent">
+//                   SkyRocket My Business
+//                 </h1>
+
+//                 <div className="overflow-hidden">
+//                   <iframe
+//                     src="https://admin.masteraix.io/widget/form/689b14dc9521c"
+//                     style={{
+//                       width: "100%",
+//                       height: "600px",
+//                       border: "none",
+//                       borderRadius: "3px",
+//                     }}
+//                     id="inline-689b14dc9521c"
+//                     data-form-name="MasteraiX 95875lpkjh,numgkhnvum"
+//                     data-layout-iframe-id="inline-689b14dc9521c"
+//                     data-form-id="689b14dc9521c"
+//                     data-height="600"
+//                     title="MasteraiX 95875lpkjh,numgkhnvum"
+//                   />
+//                 </div>
+//               </div>
+//             </motion.div>
+//           </motion.div>
+//         )}
+//       </AnimatePresence>
+//     </>
+//   );
+// }
+
+// export default WhatsAppPopup;
