@@ -2194,8 +2194,8 @@ const Home = () => {
             className="text-center mb-12"
           >
             <h2 className="text-3xl sm:text-4xl font-bold text-white mb-4">
-              The <span className="text-green-400">Smart Way</span> vs The{" "}
-              <span className="text-red-400">Old Way</span>
+              The <span className=" text-red-400"> Old Way</span> Vs The{" "}
+              <span className="text-green-400">Smart Way</span>
             </h2>
             <p className="text-gray-400 max-w-2xl mx-auto">
               Transform your lead management with AI-powered automation that
