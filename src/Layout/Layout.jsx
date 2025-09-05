@@ -8,7 +8,7 @@ function Layout() {
     <div>
       <ScrollToTop />
       <Outlet />
-      {/* <WhatsAppPopup /> */}
+      <WhatsAppPopup />
     </div>
   );
 }
